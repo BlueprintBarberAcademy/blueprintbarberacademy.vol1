@@ -1,0 +1,14 @@
+{
+  "files.exclude": {
+    "node-v20.12.2-darwin-x64": true,
+    "out": true
+  },
+  "search.exclude": {
+    "node-v20.12.2-darwin-x64": true,
+    "out": true
+  },
+  "files.watcherExclude": {
+    "**/node-v20.12.2-darwin-x64/**": true,
+    "**/out/**": true
+  }
+}
