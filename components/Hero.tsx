@@ -19,16 +19,16 @@ const episodes = [
 ];
 
 const ambassadors = [
-  { image: '/Ambassadors/poland.png', name: 'Podciety', country: 'Poland' },
-  { image: '/Ambassadors/mexico.png', name: 'Jordi', country: 'Mexico' },
-  { image: '/Ambassadors/portugal.png', name: 'Rufino', country: 'Portugal' },
-  { image: '/Ambassadors/netherlands.png', name: 'Dunkan', country: 'Netherlands' },
-  { image: '/Ambassadors/indonesia.png', name: 'Andi', country: 'Indonesia' },
-  { image: '/Ambassadors/usa.png', name: 'Mauricio', country: 'USA' },
-  { image: '/Ambassadors/australia.png', name: 'Vladyslav', country: 'Australia' },
-  { image: '/Ambassadors/south korea.png', name: 'Zay', country: 'South Korea' },
-  { image: '/Ambassadors/singaore.png', name: 'Dr. Faz', country: 'Singapore' },
-  { image: '/Ambassadors/sweden.png', name: 'Helena', country: 'Sweden' },
+  { image: '/ambassadors/poland.png', name: 'Podciety', country: 'Poland' },
+  { image: '/ambassadors/mexico.png', name: 'Jordi', country: 'Mexico' },
+  { image: '/ambassadors/portugal.png', name: 'Rufino', country: 'Portugal' },
+  { image: '/ambassadors/netherlands.png', name: 'Dunkan', country: 'Netherlands' },
+  { image: '/ambassadors/indonesia.png', name: 'Andi', country: 'Indonesia' },
+  { image: '/ambassadors/usa.png', name: 'Mauricio', country: 'USA' },
+  { image: '/ambassadors/australia.png', name: 'Vladyslav', country: 'Australia' },
+  { image: '/ambassadors/south korea.png', name: 'Zay', country: 'South Korea' },
+  { image: '/ambassadors/singaore.png', name: 'Dr. Faz', country: 'Singapore' },
+  { image: '/ambassadors/sweden.png', name: 'Helena', country: 'Sweden' },
 ];
 
 export default function Hero() {
