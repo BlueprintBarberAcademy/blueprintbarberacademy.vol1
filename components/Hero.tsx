@@ -59,29 +59,27 @@ export default function Hero() {
         {/* LEFT — Academy Info & CTAs */}
         <div className="flex flex-col items-center lg:items-start text-center lg:text-left max-w-xl lg:max-w-lg xl:max-w-xl">
 
-          {/* Main Heading Group */}
-          <div className="flex flex-col items-center lg:items-start mb-6">
-            <span className="text-xl sm:text-2xl md:text-3xl font-black uppercase tracking-[0.3em] text-accent mb-4 drop-shadow-sm">
+          {/* Pre-heading */}
+          <div className="flex flex-col items-center lg:items-start mb-4 sm:mb-6">
+            <span className="text-lg sm:text-xl md:text-2xl font-black uppercase tracking-[0.3em] text-accent mb-2">
               Online
             </span>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase tracking-tight text-foreground leading-[1.05] text-balance">
+            <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight text-foreground leading-none mb-6">
               Traditional Barber Academy
-            </h1>
-          </div>
-
-          <div className="w-16 sm:w-24 h-2 bg-accent mb-6 sm:mb-8 shadow-sm"></div>
-          
-          {/* Subheading / Explanation */}
-          <p className="text-foreground font-semibold text-xl sm:text-2xl md:text-3xl max-w-2xl mx-auto lg:mx-0 mb-6 leading-relaxed text-balance">
-            Dive into the origins of Barber Craft & Men&apos;s Care
-          </p>
-
-          {/* Name */}
-          <div className="mb-10 sm:mb-12">
-            <span className="font-serif text-2xl sm:text-3xl font-bold text-foreground/50 tracking-[0.3em] uppercase italic">
-              &quot;Blueprint&quot;
             </span>
           </div>
+
+          {/* Heading (Explanation focus) */}
+          <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-foreground mb-6 sm:mb-8 tracking-tighter leading-none uppercase text-balance">
+            Dive into the origins of Barber Craft & Men&apos;s Care
+          </h1>
+          
+          <div className="w-16 sm:w-24 h-1 sm:h-2 bg-accent mb-6 sm:mb-8"></div>
+
+          {/* Name smaller in quotes */}
+          <p className="text-foreground/60 font-serif text-2xl sm:text-3xl md:text-4xl max-w-2xl mx-auto lg:mx-0 mb-10 sm:mb-12 leading-relaxed uppercase tracking-widest">
+            &quot;Blueprint&quot;
+          </p>
 
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-5 w-full sm:w-auto">
