@@ -76,9 +76,9 @@ export default function Hero() {
           
           <div className="w-16 sm:w-24 h-1 sm:h-2 bg-accent mb-6 sm:mb-8"></div>
 
-          {/* Name smaller in quotes */}
-          <p className="text-foreground/60 font-serif text-2xl sm:text-3xl md:text-4xl max-w-2xl mx-auto lg:mx-0 mb-10 sm:mb-12 leading-relaxed uppercase tracking-widest">
-            &quot;Blueprint&quot;
+          {/* Target Audience */}
+          <p className="text-foreground/80 font-medium text-base sm:text-lg md:text-xl max-w-2xl mx-auto lg:mx-0 mb-10 sm:mb-12 leading-relaxed text-balance">
+            Designed for <strong className="text-foreground">experienced barbers</strong> elevating their craft, <strong className="text-foreground">beginners</strong> mastering the profession, and <strong className="text-foreground">everyday men</strong> cultivating the habit of self-care.
           </p>
 
           {/* CTAs */}
