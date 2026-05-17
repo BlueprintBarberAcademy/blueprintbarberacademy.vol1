@@ -77,8 +77,8 @@ export async function POST(req: Request) {
                   <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin: 25px 0;">
                     <h2 style="margin-top: 0;">Ваші посилання для доступу:</h2>
                     <ul style="line-height: 1.6;">
-                      <li>🎥 <strong>Відеоуроки:</strong> <a href="ТУТ_ВАШЕ_ПОСИЛАННЯ_НА_YOUTUBE" style="color: #0066cc;">Відкрити закритий YouTube плейлист</a></li>
-                      <li>📖 <strong>Текстовий мануал:</strong> <a href="ТУТ_ВАШЕ_ПОСИЛАННЯ_НА_GOOGLE_DOCS" style="color: #0066cc;">Відкрити Google Документ</a></li>
+                      <li>🎥 <strong>Відеоуроки:</strong> <a href="https://youtube.com/playlist?list=PLOVt1TUNHIUaW2ZKYReED7nOZMjsRCi_4&si=2HqRLio25rVklN_7" style="color: #0066cc;">Відкрити закритий YouTube плейлист</a></li>
+                      <li>📖 <strong>Текстовий мануал:</strong> <a href="https://docs.google.com/document/d/171qTZBwm2XBPP71lWOJjiq3Wvvd4hWVdOrznI2GR0Qw/edit?tab=t.0" style="color: #0066cc;">Відкрити Головний Google Документ</a></li>
                     </ul>
                   </div>
 
