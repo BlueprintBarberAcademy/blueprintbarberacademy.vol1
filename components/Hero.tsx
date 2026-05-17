@@ -64,7 +64,7 @@ export default function Hero() {
             <span className="text-lg sm:text-xl md:text-2xl font-black uppercase tracking-[0.3em] text-accent mb-2">
               Online
             </span>
-            <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight text-foreground leading-none mb-6">
+            <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black uppercase tracking-tight text-foreground leading-none mb-6">
               Traditional Barber Academy
             </span>
           </div>
