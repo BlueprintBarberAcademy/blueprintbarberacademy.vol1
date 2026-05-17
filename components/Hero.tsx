@@ -70,15 +70,15 @@ export default function Hero() {
           </div>
 
           {/* Heading (Explanation focus) */}
-          <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-foreground mb-6 sm:mb-8 tracking-tighter leading-none uppercase text-balance">
+          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-black text-foreground mb-6 sm:mb-8 tracking-tighter leading-tight uppercase text-balance">
             Dive into the origins of Barber Craft & Men&apos;s Care
           </h1>
-          
+
           <div className="w-16 sm:w-24 h-1 sm:h-2 bg-accent mb-6 sm:mb-8"></div>
 
           {/* Target Audience */}
           <p className="text-foreground/80 font-medium text-base sm:text-lg md:text-xl max-w-2xl mx-auto lg:mx-0 mb-10 sm:mb-12 leading-relaxed text-balance">
-            Designed for <strong className="text-foreground">experienced barbers</strong> elevating their craft, <strong className="text-foreground">beginners</strong> mastering the profession, and <strong className="text-foreground">everyday men</strong> cultivating the habit of self-care.
+            Designed for <strong className="text-foreground">Experienced barbers</strong> elevating their craft, <strong className="text-foreground">Beginners</strong> mastering the profession, and <strong className="text-foreground">Men</strong> developing the habit of self-care.
           </p>
 
           {/* CTAs */}
@@ -153,8 +153,8 @@ export default function Hero() {
                   key={index}
                   onClick={() => goToSlide(index)}
                   className={`h-[3px] transition-all duration-300 ${index === currentSlide
-                      ? 'w-5 bg-accent'
-                      : 'w-2 bg-foreground/20 hover:bg-foreground/40'
+                    ? 'w-5 bg-accent'
+                    : 'w-2 bg-foreground/20 hover:bg-foreground/40'
                     }`}
                 />
               ))}
