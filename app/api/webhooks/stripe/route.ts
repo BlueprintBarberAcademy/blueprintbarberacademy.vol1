@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import Stripe from 'stripe';
 import { supabaseAdmin } from '@/lib/supabase';
+import nodemailer from 'nodemailer';
 
 // Initialize Stripe
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
@@ -52,6 +53,50 @@ export async function POST(req: Request) {
           console.error('❌ Error inserting user to DB:', error.message);
         } else {
           console.log('✅ Successfully saved user to Supabase DB');
+          
+          // Send Welcome Email
+          try {
+            const transporter = nodemailer.createTransport({
+              service: 'gmail',
+              auth: {
+                user: process.env.EMAIL_USER,
+                pass: process.env.EMAIL_APP_PASSWORD,
+              },
+            });
+
+            const mailOptions = {
+              from: `"Blueprint Academy" <${process.env.EMAIL_USER}>`,
+              to: email,
+              subject: 'Ласкаво просимо до Blueprint Academy! 💈 Ваші матеріали',
+              html: `
+                <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
+                  <h1 style="color: #111;">Вітаємо, ${metadata.firstName}! 🎉</h1>
+                  <p>Дякуємо за покупку <strong>${metadata.planId === 'advance' ? 'Advance' : 'Ambassador'} Plan</strong> в Blueprint Barber Academy.</p>
+                  <p>Оскільки це передпродаж, ви отримуєте ексклюзивний ранній доступ до наших матеріалів. Ми дуже цінуємо вашу довіру!</p>
+                  
+                  <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin: 25px 0;">
+                    <h2 style="margin-top: 0;">Ваші посилання для доступу:</h2>
+                    <ul style="line-height: 1.6;">
+                      <li>🎥 <strong>Відеоуроки:</strong> <a href="ТУТ_ВАШЕ_ПОСИЛАННЯ_НА_YOUTUBE" style="color: #0066cc;">Відкрити закритий YouTube плейлист</a></li>
+                      <li>📖 <strong>Текстовий мануал:</strong> <a href="ТУТ_ВАШЕ_ПОСИЛАННЯ_НА_GOOGLE_DOCS" style="color: #0066cc;">Відкрити Google Документ</a></li>
+                    </ul>
+                  </div>
+
+                  <p style="color: #666; font-size: 14px;"><em>*Будь ласка, не передавайте ці посилання іншим особам, оскільки вони призначені виключно для вас.</em></p>
+                  
+                  <p>Якщо у вас виникнуть запитання, просто дайте відповідь на цей лист.</p>
+                  
+                  <br/>
+                  <p>З повагою,<br/><strong>Команда Blueprint Academy</strong></p>
+                </div>
+              `
+            };
+
+            await transporter.sendMail(mailOptions);
+            console.log('✅ Welcome email sent successfully to:', email);
+          } catch (mailError) {
+            console.error('❌ Error sending welcome email:', mailError);
+          }
         }
       }
     }
