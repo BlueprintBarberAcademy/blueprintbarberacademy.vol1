@@ -77,7 +77,7 @@ export default function Hero() {
           <div className="w-16 sm:w-24 h-1 sm:h-2 bg-accent mb-6 sm:mb-8"></div>
 
           {/* Target Audience */}
-          <p className="text-foreground/80 font-medium text-base sm:text-lg md:text-xl max-w-2xl mx-auto lg:mx-0 mb-10 sm:mb-12 leading-relaxed text-balance">
+          <p className="text-foreground/80 font-medium text-lg sm:text-xl md:text-2xl max-w-2xl mx-auto lg:mx-0 mb-10 sm:mb-12 leading-relaxed text-balance">
             Designed for <strong className="text-foreground">Experienced barbers</strong> elevating their craft, <strong className="text-foreground">Beginners</strong> mastering the profession, and <strong className="text-foreground">Men</strong> developing the habit of self-care.
           </p>
 
