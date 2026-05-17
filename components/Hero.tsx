@@ -59,24 +59,29 @@ export default function Hero() {
         {/* LEFT — Academy Info & CTAs */}
         <div className="flex flex-col items-center lg:items-start text-center lg:text-left max-w-xl lg:max-w-lg xl:max-w-xl">
 
-          {/* Pre-heading */}
-          <div className="flex flex-col items-center lg:items-start mb-6 sm:mb-8">
-            <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.3em] text-accent mb-2">
+          {/* Main Heading Group */}
+          <div className="flex flex-col items-center lg:items-start mb-6">
+            <span className="text-xl sm:text-2xl md:text-3xl font-black uppercase tracking-[0.3em] text-accent mb-4 drop-shadow-sm">
               Online
             </span>
-            <span className="text-sm sm:text-base md:text-lg font-bold uppercase tracking-[0.2em] text-foreground">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase tracking-tight text-foreground leading-[1.05] text-balance">
               Traditional Barber Academy
-            </span>
+            </h1>
           </div>
 
-          {/* Heading */}
-          <h1 className="font-serif text-[11vw] sm:text-7xl md:text-8xl lg:text-7xl xl:text-8xl font-black text-foreground mb-4 sm:mb-6 tracking-tighter leading-none uppercase">
-            Blueprint
-          </h1>
-          <div className="w-16 sm:w-24 h-1 bg-accent mb-6 sm:mb-8"></div>
-          <p className="text-foreground/80 font-medium text-base sm:text-lg md:text-xl max-w-2xl mx-auto lg:mx-0 mb-10 sm:mb-12 leading-relaxed text-balance">
+          <div className="w-16 sm:w-24 h-2 bg-accent mb-6 sm:mb-8 shadow-sm"></div>
+          
+          {/* Subheading / Explanation */}
+          <p className="text-foreground font-semibold text-xl sm:text-2xl md:text-3xl max-w-2xl mx-auto lg:mx-0 mb-6 leading-relaxed text-balance">
             Dive into the origins of Barber Craft & Men&apos;s Care
           </p>
+
+          {/* Name */}
+          <div className="mb-10 sm:mb-12">
+            <span className="font-serif text-2xl sm:text-3xl font-bold text-foreground/50 tracking-[0.3em] uppercase italic">
+              &quot;Blueprint&quot;
+            </span>
+          </div>
 
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-5 w-full sm:w-auto">
