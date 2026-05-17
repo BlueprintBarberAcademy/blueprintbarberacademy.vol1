@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter, Playfair_Display, Dancing_Script } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/react'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
@@ -20,6 +21,7 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${playfair.variable} ${dancing.variable} scroll-smooth`}>
       <body className="bg-background text-foreground font-sans antialiased overflow-x-hidden selection:bg-primary selection:text-background">
         {children}
+        <Analytics />
       </body>
     </html>
   )
