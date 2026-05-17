@@ -97,16 +97,23 @@ export default function Hero() {
         {/* RIGHT — Compact Ambassador Slideshow Card */}
         <div className="w-full max-w-[340px] sm:max-w-[360px] lg:max-w-[320px] xl:max-w-[360px] flex-shrink-0 mb-16 lg:mb-0 flex flex-col gap-4">
 
-          {/* Ambassador Program label — RED BLOCK (in flow, no overlap) */}
-          <a href="/ambassador-program" className="group flex items-center justify-center gap-3 bg-accent border-2 border-foreground px-4 py-3 shadow-[4px_4px_0_0_#17193b] hover:shadow-[6px_6px_0_0_#17193b] hover:-translate-y-0.5 transition-all duration-200 w-full">
-            <span className="relative flex h-3 w-3 flex-shrink-0">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-background opacity-60"></span>
-              <span className="relative inline-flex rounded-full h-3 w-3 bg-background"></span>
-            </span>
-            <span className="text-sm font-black uppercase tracking-[0.15em] text-background whitespace-nowrap">
-              Ambassador Program OPEN!
-            </span>
-          </a>
+          {/* Button Wrapper with Bouncing Arrow */}
+          <div className="w-full flex flex-col items-center gap-2 mt-[-10px]">
+            {/* Bouncing Arrow */}
+            <div className="animate-bounce text-accent flex flex-col items-center">
+              <span className="text-[10px] font-black uppercase tracking-widest mb-1">Click Here</span>
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+              </svg>
+            </div>
+
+            {/* Ambassador Program label — RED BLOCK */}
+            <a href="/ambassador-program" className="group flex items-center justify-center gap-3 bg-accent border-2 border-foreground px-4 py-3 shadow-[4px_4px_0_0_#17193b] hover:shadow-[6px_6px_0_0_#17193b] hover:-translate-y-0.5 transition-all duration-200 w-full">
+              <span className="text-sm font-black uppercase tracking-[0.15em] text-background whitespace-nowrap">
+                Ambassador Program OPEN
+              </span>
+            </a>
+          </div>
 
           {/* Slideshow container */}
           <div className="relative aspect-[3/4] w-full overflow-hidden border-2 border-foreground shadow-[8px_8px_0_0_#17193b]">
