@@ -9,7 +9,7 @@ const dancing = Dancing_Script({ subsets: ['latin'], variable: '--font-script' }
 
 export const metadata: Metadata = {
   title: 'Blueprint Barber Academy | Professional Education',
-  description: 'Online education platform for hairdressers and barbers. Education based on real salon work, not disconnected theory.',
+  description: 'A comprehensive barbering course for everyday men, young professionals, and experienced barbers and hairdressers looking to elevate their skills in men\'s haircuts.',
 }
 
 export default function RootLayout({
