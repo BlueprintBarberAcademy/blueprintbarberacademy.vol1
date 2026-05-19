@@ -1,6 +1,6 @@
 'use client';
 
-import { X, Instagram, Globe, MapPin, ExternalLink } from 'lucide-react';
+import { X, Instagram, Globe, MapPin } from 'lucide-react';
 
 export interface AmbassadorData {
   name: string;
