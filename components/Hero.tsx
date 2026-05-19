@@ -31,7 +31,7 @@ const ambassadors = [
   { image: '/ambassadors/sweden.png', name: 'Helena', country: 'Sweden' },
   { image: '/ambassadors/argentina.png', name: 'David Godoy', country: 'Argentina' },
   { image: '/ambassadors/brasil.png', name: 'Juliano Nunes', country: 'Brazil' },
-  { image: '/ambassadors/insta/greece.PNG', name: 'Outsiders Barbershop', country: 'Greece' },
+  { image: '/ambassadors/greece.png', name: 'Outsiders Barbershop', country: 'Greece' },
 ];
 
 export default function Hero() {

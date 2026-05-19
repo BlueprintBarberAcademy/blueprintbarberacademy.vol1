@@ -167,7 +167,7 @@ const DEMO_AMBASSADORS: Record<string, AmbassadorData> = {
     name: 'Outsiders Barbershop',
     country: 'Greece',
     countryCode: 'GRC',
-    photo: '/ambassadors/insta/greece.PNG',
+    photo: '/ambassadors/greece.png',
     shopName: 'Outsiders Barbershop',
     experience: 5,
     instagram: 'https://instagram.com/outsidersbarbershop',
