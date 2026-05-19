@@ -74,8 +74,8 @@ export default function AmbassadorInfoModal({ ambassador, onClose }: AmbassadorI
             <p className="text-xl font-serif font-black text-foreground">{ambassador.experience}<span className="text-accent">+</span> <span className="text-xs font-sans">years</span></p>
           </div>
           <div className="border-2 border-foreground/20 p-3">
-            <p className="text-[10px] font-bold uppercase tracking-widest text-foreground/50 mb-1">Salon</p>
-            <p className="text-sm font-black text-foreground uppercase tracking-wide leading-tight">{ambassador.shopName}</p>
+            <p className="text-[10px] font-bold uppercase tracking-widest text-foreground/50 mb-1">City</p>
+            <p className="text-sm font-black text-foreground uppercase tracking-wide leading-tight">{ambassador.location}</p>
           </div>
         </div>
 
@@ -112,15 +112,7 @@ export default function AmbassadorInfoModal({ ambassador, onClose }: AmbassadorI
                 Website
               </a>
             )}
-            <a
-              href={`https://maps.google.com/?q=${encodeURIComponent(ambassador.location)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 bg-background text-foreground px-4 py-2.5 border-2 border-foreground text-xs font-bold uppercase tracking-widest hover:bg-foreground hover:text-background transition-colors"
-            >
-              <ExternalLink className="w-4 h-4" />
-              Location
-            </a>
+
           </div>
         </div>
 
