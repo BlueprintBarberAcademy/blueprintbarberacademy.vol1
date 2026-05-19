@@ -269,7 +269,7 @@ export default function AmbassadorProgramPage() {
             Global Network
           </span>
           <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl font-black text-foreground tracking-tighter leading-none uppercase mb-6">
-            It's bigger than us
+            It&apos;s bigger than us
           </h2>
           <div className="w-16 h-1 bg-accent mx-auto mb-8"></div>
           <p className="text-foreground/70 text-lg font-medium leading-relaxed max-w-2xl mx-auto mb-12">
