@@ -1,29 +1,23 @@
 import Image from 'next/image';
 
 const haircuts = [
-  '/master/haircuts/flattop.png',
-  '/master/haircuts/pompadour.png',
-  '/master/haircuts/sidepart.png',
   '/master/haircuts/curlyflattop.png',
   '/master/haircuts/flattopboogie.png',
   '/master/haircuts/highntigh.png',
   '/master/haircuts/mullet.png',
-  '/master/haircuts/psycho.png',
+  '/master/haircuts/pompadour.png',
   '/master/haircuts/shaving.png',
+  '/master/haircuts/sidepart.png',
 ];
 
 const masterclasses = [
   '/master/classes/frankfurt.png',
-  '/master/classes/greece.png',
   '/master/classes/jarocin.png',
-  '/master/classes/kyiv1st.png',
-  '/master/classes/kyivm15.png',
-  '/master/classes/lublin.png',
-  '/master/classes/misk.png',
-  '/master/classes/rzesuw.png',
-  '/master/classes/szamotuly.png',
   '/master/classes/szeczyn.png',
-  '/master/classes/waw1on1.png',
+  '/master/classes/szshamo.png',
+  '/master/classes/wawL.png',
+  '/master/classes/wawN.png',
+  '/master/classes/wawT.png',
 ];
 
 export default function FinalCTA() {
@@ -42,32 +36,24 @@ export default function FinalCTA() {
         </p>
       </div>
 
-      {/* Marquee 1: Masterclasses */}
-      <div className="w-full bg-foreground border-y-4 border-foreground py-2 flex items-center shadow-[0_8px_30px_rgba(0,0,0,0.12)] z-20 transform -rotate-1 scale-105 mb-4">
+      {/* Row 1: Masterclasses */}
+      <div className="w-full bg-foreground border-y-4 border-foreground py-4 flex items-center shadow-[0_8px_30px_rgba(0,0,0,0.12)] z-20 transform -rotate-1 scale-105 mb-4 overflow-x-auto snap-x [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
         <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: 'repeating-linear-gradient(45deg, var(--background) 0, var(--background) 2px, transparent 0, transparent 40px)', backgroundSize: '60px 60px' }}></div>
-        <div className="flex animate-marquee whitespace-nowrap min-w-full">
-          {[...Array(2)].map((_, containerIndex) => (
-            <div key={containerIndex} className="flex items-center shrink-0">
-              {masterclasses.map((src, index) => (
-                <div key={`${containerIndex}-${index}`} className="relative h-48 w-72 mx-2 border-2 border-background shadow-[4px_4px_0_0_rgba(255,255,255,0.2)] bg-secondary overflow-hidden">
-                  <Image src={src} alt="Masterclass" fill unoptimized={true} className="object-cover grayscale hover:grayscale-0 transition-all duration-500" sizes="288px" />
-                </div>
-              ))}
+        <div className="flex items-center min-w-max px-8">
+          {masterclasses.map((src, index) => (
+            <div key={`mc-${index}`} className="relative h-56 w-80 mx-3 border-2 border-background shadow-[4px_4px_0_0_rgba(255,255,255,0.2)] bg-secondary overflow-hidden snap-center shrink-0 group">
+              <Image src={src} alt="Masterclass" fill unoptimized={true} className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500" sizes="320px" />
             </div>
           ))}
         </div>
       </div>
 
-      {/* Marquee 2: Haircuts */}
-      <div className="w-full bg-background border-y-4 border-foreground py-2 flex items-center shadow-[0_8px_30px_rgba(0,0,0,0.12)] z-10 transform rotate-1 scale-105 mb-24">
-        <div className="flex animate-marquee-reverse whitespace-nowrap min-w-full">
-          {[...Array(2)].map((_, containerIndex) => (
-            <div key={containerIndex} className="flex items-center shrink-0">
-              {haircuts.map((src, index) => (
-                <div key={`${containerIndex}-${index}`} className="relative h-64 w-48 mx-2 border-2 border-foreground shadow-[4px_4px_0_0_#17193b] bg-secondary overflow-hidden">
-                  <Image src={src} alt="Haircut" fill unoptimized={true} className="object-cover grayscale hover:grayscale-0 transition-all duration-500" sizes="192px" />
-                </div>
-              ))}
+      {/* Row 2: Haircuts */}
+      <div className="w-full bg-background border-y-4 border-foreground py-4 flex items-center shadow-[0_8px_30px_rgba(0,0,0,0.12)] z-10 transform rotate-1 scale-105 mb-24 overflow-x-auto snap-x [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+        <div className="flex items-center min-w-max px-8">
+          {haircuts.map((src, index) => (
+            <div key={`hc-${index}`} className="relative h-72 w-56 mx-3 border-2 border-foreground shadow-[4px_4px_0_0_#17193b] bg-secondary overflow-hidden snap-center shrink-0 group">
+              <Image src={src} alt="Haircut" fill unoptimized={true} className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500" sizes="224px" />
             </div>
           ))}
         </div>
