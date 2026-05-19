@@ -73,8 +73,8 @@ export default function Hero() {
           </div>
 
           {/* Heading (Explanation focus) */}
-          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-black text-foreground mb-6 sm:mb-8 tracking-tighter leading-tight uppercase text-balance">
-            Master the Full barber proffession Online - from tools to salesmanship
+          <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-black text-foreground mb-6 sm:mb-8 tracking-tighter leading-tight uppercase text-balance">
+            Master the Full Barber Profession Online - From Tools to Salesmanship
           </h1>
 
           <div className="w-16 sm:w-24 h-1 sm:h-2 bg-accent mb-6 sm:mb-8"></div>
