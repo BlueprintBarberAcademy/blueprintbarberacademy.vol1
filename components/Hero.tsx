@@ -27,8 +27,11 @@ const ambassadors = [
   { image: '/ambassadors/usa.png', name: 'Mauricio', country: 'USA' },
   { image: '/ambassadors/australia.png', name: 'Vladyslav', country: 'Australia' },
   { image: '/ambassadors/south korea.png', name: 'Zay', country: 'South Korea' },
-  { image: '/ambassadors/singaore.png', name: 'Dr. Faz', country: 'Singapore' },
+  { image: '/ambassadors/singapore.png', name: 'Dr. Faz', country: 'Singapore' },
   { image: '/ambassadors/sweden.png', name: 'Helena', country: 'Sweden' },
+  { image: '/ambassadors/argentina.png', name: 'David Godoy', country: 'Argentina' },
+  { image: '/ambassadors/brasil.png', name: 'Juliano Nunes', country: 'Brazil' },
+  { image: '/ambassadors/insta/greece.PNG', name: 'Outsiders Barbershop', country: 'Greece' },
 ];
 
 export default function Hero() {

@@ -123,7 +123,7 @@ const DEMO_AMBASSADORS: Record<string, AmbassadorData> = {
     name: 'Dr. Faz',
     country: 'Singapore',
     countryCode: 'SGP',
-    photo: '/ambassadors/singaore.png',
+    photo: '/ambassadors/singapore.png',
     shopName: 'Faz Barber Studio',
     experience: 14,
     instagram: 'https://instagram.com/drfaz',
