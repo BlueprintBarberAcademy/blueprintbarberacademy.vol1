@@ -50,7 +50,7 @@ export default function FinalCTA() {
             <div key={containerIndex} className="flex items-center shrink-0">
               {masterclasses.map((src, index) => (
                 <div key={`${containerIndex}-${index}`} className="relative h-48 w-72 mx-2 border-2 border-background shadow-[4px_4px_0_0_rgba(255,255,255,0.2)] bg-secondary overflow-hidden">
-                  <Image src={src} alt="Masterclass" fill className="object-cover grayscale hover:grayscale-0 transition-all duration-500" sizes="288px" />
+                  <Image src={src} alt="Masterclass" fill unoptimized={true} className="object-cover grayscale hover:grayscale-0 transition-all duration-500" sizes="288px" />
                 </div>
               ))}
             </div>
@@ -65,7 +65,7 @@ export default function FinalCTA() {
             <div key={containerIndex} className="flex items-center shrink-0">
               {haircuts.map((src, index) => (
                 <div key={`${containerIndex}-${index}`} className="relative h-64 w-48 mx-2 border-2 border-foreground shadow-[4px_4px_0_0_#17193b] bg-secondary overflow-hidden">
-                  <Image src={src} alt="Haircut" fill className="object-cover grayscale hover:grayscale-0 transition-all duration-500" sizes="192px" />
+                  <Image src={src} alt="Haircut" fill unoptimized={true} className="object-cover grayscale hover:grayscale-0 transition-all duration-500" sizes="192px" />
                 </div>
               ))}
             </div>
