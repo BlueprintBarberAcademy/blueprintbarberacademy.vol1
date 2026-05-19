@@ -38,7 +38,7 @@ export default function FinalCTA() {
           Real Results
         </h2>
         <p className="text-lg text-foreground/80 font-medium text-balance max-w-2xl lowercase tracking-widest">
-          Thousands of students taught worldwide. Countless classic haircuts executed with precision. Don't just trust our words, look at our track record.
+          Thousands of students taught worldwide. Countless classic haircuts executed with precision. Don&apos;t just trust our words, look at our track record.
         </p>
       </div>
 

@@ -40,14 +40,14 @@ export default function Educator() {
             <div className="w-24 h-2 bg-foreground mb-8"></div>
 
             <p className="text-lg text-foreground/80 font-medium leading-relaxed mb-6 text-balance">
-              With 10+ years of experience mastering the traditional craft of barbering, Mykyta brings a highly precise and systematized approach to men's grooming. His methodology strips away the noise, focusing entirely on flawless technique and consistent, superior results.
+              With 10+ years of experience mastering the traditional craft of barbering, Mykyta brings a highly precise and systematized approach to men&apos;s grooming. His methodology strips away the noise, focusing entirely on flawless technique and consistent, superior results.
             </p>
             <div className="bg-secondary p-6 border-l-4 border-accent mb-12 shadow-[4px_4px_0_0_#17193b]">
               <p className="text-foreground font-black uppercase tracking-widest text-sm mb-3">
                 Featured in GQ Poland
               </p>
               <p className="text-foreground/80 italic text-base mb-4 leading-relaxed">
-                "I spoke about how to shave properly with Mykyta V., an experienced barber from The Hermit Barber Shop in Warsaw... He honed his skills all over the world to now take care of men's hair and beards in the oldest barber shop in Poland."
+                &quot;I spoke about how to shave properly with Mykyta V., an experienced barber from The Hermit Barber Shop in Warsaw... He honed his skills all over the world to now take care of men&apos;s hair and beards in the oldest barber shop in Poland.&quot;
               </p>
               <a
                 href="https://gq.pl/self-care/uroda/sztuka-golenia-zarostu-barber-tlumaczy-jak-robic-to-prawidlowo-i-uniknac-podraznien"
