@@ -195,6 +195,81 @@ export default function AmbassadorGlobe() {
   const [searchQuery, setSearchQuery] = useState('');
   const [showDropdown, setShowDropdown] = useState(false);
 
+  const [ambassadorsData, setAmbassadorsData] = useState<Record<string, AmbassadorData>>(DEMO_AMBASSADORS);
+  const [takenCountries, setTakenCountries] = useState<Set<string>>(TAKEN_COUNTRIES);
+  
+  // Fetch from Google Sheets on mount
+  useEffect(() => {
+    fetch('https://docs.google.com/spreadsheets/d/1zqybQqkll3624NKxaUIuc7dGk5nLzYUtzVhcftzoFFg/export?format=csv&gid=0')
+      .then(res => res.text())
+      .then(csv => {
+        const lines = csv.split('\n');
+        if (lines.length < 2) return;
+        
+        const newAmbassadors: Record<string, AmbassadorData> = {};
+        const newTaken = new Set<string>();
+        
+        for (let i = 1; i < lines.length; i++) {
+          const line = lines[i];
+          if (!line.trim()) continue;
+          
+          // Basic CSV parsing
+          const values = line.split(',');
+          const country = values[0]?.trim();
+          if (!country) continue;
+          
+          const name = values[1]?.trim();
+          let insta = values[2]?.trim().replace('@', '');
+          if (insta && !insta.startsWith('http')) {
+            insta = `https://www.instagram.com/${insta}`;
+          }
+          const yearsStr = values[3]?.trim();
+          const experience = parseInt(yearsStr) || 0;
+          const city = values[4]?.trim() || '';
+          const bio = values.slice(5).join(',')?.trim().replace(/^"|"$/g, '') || '';
+          
+          // Map to ISO_A3
+          let isoCode = 'USA';
+          const cLow = country.toLowerCase();
+          if (cLow.includes('poland')) isoCode = 'POL';
+          else if (cLow.includes('mexico')) isoCode = 'MEX';
+          else if (cLow.includes('portugal')) isoCode = 'PRT';
+          else if (cLow.includes('usa') || cLow.includes('states')) isoCode = 'USA';
+          else if (cLow.includes('korea')) isoCode = 'KOR';
+          else if (cLow.includes('netherlands')) isoCode = 'NLD';
+          else if (cLow.includes('indonesia')) isoCode = 'IDN';
+          else if (cLow.includes('singapore')) isoCode = 'SGP';
+          else if (cLow.includes('brasil') || cLow.includes('brazil')) isoCode = 'BRA';
+          else if (cLow.includes('sweden')) isoCode = 'SWE';
+          else if (cLow.includes('australia')) isoCode = 'AUS';
+          else if (cLow.includes('greece')) isoCode = 'GRC';
+          else if (cLow.includes('argentina')) isoCode = 'ARG';
+          
+          let photoCountry = cLow.replace('brasil', 'brasil').replace('brazil', 'brasil');
+          if (photoCountry === 'usa') photoCountry = 'usa';
+          
+          newAmbassadors[isoCode] = {
+            name,
+            country,
+            countryCode: isoCode,
+            photo: `/ambassadors/${photoCountry}.png`,
+            shopName: city,
+            experience,
+            instagram: insta,
+            location: `${city ? city + ', ' : ''}${country}`,
+            bio,
+          };
+          newTaken.add(isoCode);
+        }
+        
+        if (Object.keys(newAmbassadors).length > 0) {
+          setAmbassadorsData(newAmbassadors);
+          setTakenCountries(newTaken);
+        }
+      })
+      .catch(err => console.error("Error fetching CSV:", err));
+  }, []);
+
   // Filter countries for search
   const filteredCountries = countries.features?.filter((feat: any) => {
     const name = feat.properties?.NAME || feat.properties?.ADMIN || '';
@@ -261,7 +336,7 @@ export default function AmbassadorGlobe() {
       }
       return isHover ? 'rgba(191, 31, 47, 0.45)' : 'rgba(253, 252, 251, 0.15)';
     },
-    [hoverD]
+    [hoverD, takenCountries]
   );
 
   // Side color
@@ -269,10 +344,10 @@ export default function AmbassadorGlobe() {
     (feat: any) => {
       const code = feat.properties?.ISO_A3;
       if (BLOCKED_COUNTRIES.has(code)) return 'rgba(80, 20, 25, 0.3)';
-      if (TAKEN_COUNTRIES.has(code)) return 'rgba(23, 25, 59, 0.3)';
+      if (takenCountries.has(code)) return 'rgba(23, 25, 59, 0.3)';
       return 'rgba(253, 252, 251, 0.08)';
     },
-    []
+    [takenCountries]
   );
 
   // Stroke color
@@ -280,10 +355,10 @@ export default function AmbassadorGlobe() {
     (feat: any) => {
       const code = feat.properties?.ISO_A3;
       if (BLOCKED_COUNTRIES.has(code)) return 'rgba(191, 31, 47, 0.5)';
-      if (TAKEN_COUNTRIES.has(code)) return 'rgba(23, 25, 59, 0.7)';
+      if (takenCountries.has(code)) return 'rgba(23, 25, 59, 0.7)';
       return 'rgba(253, 252, 251, 0.25)';
     },
-    []
+    [takenCountries]
   );
 
   // Handle country click
@@ -293,12 +368,12 @@ export default function AmbassadorGlobe() {
 
     if (BLOCKED_COUNTRIES.has(code)) {
       setModal({ type: 'blocked', countryName: name });
-    } else if (TAKEN_COUNTRIES.has(code) && DEMO_AMBASSADORS[code]) {
-      setModal({ type: 'ambassador', data: DEMO_AMBASSADORS[code] });
+    } else if (takenCountries.has(code) && ambassadorsData[code]) {
+      setModal({ type: 'ambassador', data: ambassadorsData[code] });
     } else {
       setModal({ type: 'application', countryName: name });
     }
-  }, []);
+  }, [takenCountries, ambassadorsData]);
 
   // Handle hover
   const handleHover = useCallback((feat: any) => {
@@ -336,7 +411,7 @@ export default function AmbassadorGlobe() {
               if (BLOCKED_COUNTRIES.has(code)) {
                 return `<div style="background:#17193b;color:#bf1f2f;padding:8px 14px;border:2px solid #bf1f2f;font-family:sans-serif;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:2px;">🚫 ${name} — BLOCKED</div>`;
               }
-              if (TAKEN_COUNTRIES.has(code)) {
+              if (takenCountries.has(code)) {
                 return `<div style="background:#17193b;color:#fdfcfb;padding:8px 14px;border:2px solid #fdfcfb;font-family:sans-serif;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:2px;">✦ ${name} — AMBASSADOR</div>`;
               }
               return `<div style="background:#17193b;color:#fdfcfb;padding:8px 14px;border:2px solid #fdfcfb50;font-family:sans-serif;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:2px;">${name}</div>`;
@@ -406,7 +481,7 @@ export default function AmbassadorGlobe() {
                 if (BLOCKED_COUNTRIES.has(code)) {
                    status = 'BLOCKED';
                    statusColor = 'text-accent';
-                } else if (TAKEN_COUNTRIES.has(code)) {
+                } else if (takenCountries.has(code)) {
                    status = 'TAKEN';
                    statusColor = 'text-white';
                 }
