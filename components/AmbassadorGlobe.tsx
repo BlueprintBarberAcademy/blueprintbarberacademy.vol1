@@ -36,7 +36,6 @@ const DEMO_AMBASSADORS: Record<string, AmbassadorData> = {
     photo: '/ambassadors/poland.png',
     shopName: 'Podciety Barbershop',
     experience: 8,
-    instagram: 'https://instagram.com/podciety',
     instagram: 'https://www.instagram.com/podciety?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',
     location: 'Poland',
     bio: 'Podciety brings the Blueprint methodology to the Polish barbering community. Training the next generation with real-world techniques.',
