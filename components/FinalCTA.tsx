@@ -41,8 +41,8 @@ export default function FinalCTA() {
         <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: 'repeating-linear-gradient(45deg, var(--background) 0, var(--background) 2px, transparent 0, transparent 40px)', backgroundSize: '60px 60px' }}></div>
         <div className="flex items-center min-w-max px-8">
           {masterclasses.map((src, index) => (
-            <div key={`mc-${index}`} className="relative h-56 w-80 mx-3 border-2 border-background shadow-[4px_4px_0_0_rgba(255,255,255,0.2)] bg-[#0a0b1a] overflow-hidden snap-center shrink-0 group">
-              <Image src={src} alt="Masterclass" fill unoptimized={true} className="object-contain p-1 grayscale group-hover:grayscale-0 transition-all duration-500" sizes="320px" />
+            <div key={`mc-${index}`} className="relative h-56 mx-3 border-2 border-background shadow-[4px_4px_0_0_rgba(255,255,255,0.2)] bg-secondary snap-center shrink-0 group">
+              <img src={src} alt="Masterclass" loading="lazy" className="h-full w-auto object-cover grayscale group-hover:grayscale-0 transition-all duration-500 block" />
             </div>
           ))}
         </div>
@@ -52,8 +52,8 @@ export default function FinalCTA() {
       <div className="w-full bg-background border-y-4 border-foreground py-4 flex items-center shadow-[0_8px_30px_rgba(0,0,0,0.12)] z-10 transform rotate-1 scale-105 mb-24 overflow-x-auto snap-x [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
         <div className="flex items-center min-w-max px-8">
           {haircuts.map((src, index) => (
-            <div key={`hc-${index}`} className="relative h-72 w-56 mx-3 border-2 border-foreground shadow-[4px_4px_0_0_#17193b] bg-[#0a0b1a] overflow-hidden snap-center shrink-0 group">
-              <Image src={src} alt="Haircut" fill unoptimized={true} className="object-contain p-1 grayscale group-hover:grayscale-0 transition-all duration-500" sizes="224px" />
+            <div key={`hc-${index}`} className="relative h-72 mx-3 border-2 border-foreground shadow-[4px_4px_0_0_#17193b] bg-secondary snap-center shrink-0 group">
+              <img src={src} alt="Haircut" loading="lazy" className="h-full w-auto object-cover grayscale group-hover:grayscale-0 transition-all duration-500 block" />
             </div>
           ))}
         </div>
