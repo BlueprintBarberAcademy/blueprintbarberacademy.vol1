@@ -40,7 +40,7 @@ export default function Educator() {
             <div className="w-24 h-2 bg-foreground mb-8"></div>
 
             <p className="text-lg text-foreground/80 font-medium leading-relaxed mb-6 text-balance">
-              With deep experience mastering the traditional craft of barbering, Mykyta brings a highly precise and systematized approach to men's grooming. His methodology strips away the noise, focusing entirely on flawless technique and consistent, superior results.
+              With 10+ years of experience mastering the traditional craft of barbering, Mykyta brings a highly precise and systematized approach to men's grooming. His methodology strips away the noise, focusing entirely on flawless technique and consistent, superior results.
             </p>
             <div className="bg-secondary p-6 border-l-4 border-accent mb-12 shadow-[4px_4px_0_0_#17193b]">
               <p className="text-foreground font-black uppercase tracking-widest text-sm mb-3">
