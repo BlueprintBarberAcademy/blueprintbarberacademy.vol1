@@ -21,12 +21,12 @@ const benefits = [
   {
     number: '03',
     title: 'Systematisations',
-    description: 'Receive a system process that actually works is used. Servise delivery, salesmanship, education and buisness.',
+    description: 'Receive a system process that actually works is used. Service delivery, salesmanship, education and business.',
   },
   {
     number: '04',
     title: 'Revenue Share',
-    description: 'Earn commission on every referral. Take most of it from pactical classes. More barbers you bring to the academy - more you earn.',
+    description: 'Earn commission on every referral. Take most of it from hands-on classes. More barbers you bring to the academy - more you earn.',
   },
   {
     number: '05',

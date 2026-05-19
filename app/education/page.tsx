@@ -128,6 +128,37 @@ export default function Education() {
         </div>
       </section>
 
+      {/* Certification Section */}
+      <section className="py-16 md:py-24 bg-background border-t-2 border-foreground relative overflow-hidden">
+        <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: 'repeating-linear-gradient(-45deg, var(--foreground) 0, var(--foreground) 2px, transparent 0, transparent 40px)', backgroundSize: '60px 60px' }}></div>
+        <div className="container mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center gap-12 relative z-10">
+          {/* Image */}
+          <div className="w-full md:w-1/2 relative h-[300px] md:h-[450px] border-4 border-foreground shadow-[8px_8px_0_0_#17193b] overflow-hidden bg-secondary">
+            <Image
+              src="/education/certificate.png"
+              alt="Blueprint Official Certificate"
+              fill
+              className="object-contain p-4 md:p-8"
+            />
+          </div>
+          {/* Text */}
+          <div className="w-full md:w-1/2 flex flex-col items-start text-left">
+            <div className="inline-block bg-accent text-background px-4 py-1 mb-6 border-2 border-foreground shadow-[4px_4px_0_0_#17193b]">
+              <p className="text-xs font-bold tracking-widest uppercase">Official Certification</p>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-serif font-black text-foreground mb-6 uppercase tracking-tighter leading-none">
+              Get Certified
+            </h2>
+            <p className="text-lg text-foreground/80 font-medium leading-relaxed mb-6">
+              All participants who successfully complete any of our physical live coaching classes will receive an official <strong className="text-foreground">Blueprint Academy Certificate</strong>.
+            </p>
+            <p className="text-base text-foreground/60 font-bold">
+              Demonstrate your commitment to the craft and elevate your professional portfolio with our globally recognized credential.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Booking Modal */}
       {isModalOpen && (
         <div
@@ -201,6 +232,9 @@ export default function Education() {
                   </optgroup>
                   <optgroup label="Ambassadors">
                     <option value="vladyslav-australia">Vladyslav — Australia</option>
+                    <option value="david-argentina">David Godoy — Argentina</option>
+                    <option value="juliano-brazil">Juliano Nunes — Brazil</option>
+                    <option value="outsiders-greece">Outsiders Barbershop — Greece</option>
                     <option value="andi-indonesia">Andi — Indonesia</option>
                     <option value="jordi-mexico">Jordi — Mexico</option>
                     <option value="dunkan-netherlands">Dunkan — Netherlands</option>

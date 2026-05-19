@@ -29,7 +29,7 @@ const plans = [
     price: "$250",
     originalPrice: "$1,000",
     period: "lifetime",
-    desc: "Full course access + Ambassador Program with all privileges, inner community membership and early-partner status.",
+    desc: "For Experienced barbers ready to do more for the sake of Craft & Culture.",
     features: [
       "Lifetime access to all academy courses & manuals",
       "Build your personal and shop brand globally",
@@ -52,7 +52,7 @@ const plans = [
     price: "$250",
     originalPrice: "$1,000",
     period: "lifetime",
-    desc: "Full course access, outer community membership and Blueprint news & updates.",
+    desc: "For Young/New barbers want to learn the proffesion in a proper, systematic way.",
     features: [
       "Unlimited access to learn at your own pace",
       "Real-time updates & active participation",
@@ -93,10 +93,9 @@ export default function Plans() {
             <div className="w-full max-w-2xl bg-foreground text-background border-2 border-foreground px-6 py-4 shadow-[6px_6px_0_0_#d92b3a] flex items-start gap-4 text-left">
               <AlertTriangle className="w-6 h-6 text-accent shrink-0 mt-0.5" />
               <div>
-                <p className="text-sm font-black uppercase tracking-widest text-accent mb-1">Pre-Sale — Course 60% Complete</p>
+                <p className="text-sm font-black uppercase tracking-widest text-accent mb-1">Pre-Sale Active</p>
                 <p className="text-sm text-background/80 font-medium leading-relaxed">
-                  The Blueprint curriculum is currently <strong className="text-background">60% finished</strong>. All funds raised go directly toward completing the remaining content.
-                  Pre-sale prices reflect a <strong className="text-accent">75% discount</strong> off the final launch price. Early supporters gain lifetime access and full privileges when all episodes are released.
+                  Join now and get all new episodes in real time first. Pre-sale prices reflect a <strong className="text-accent">75% discount</strong> off the final launch price. Early supporters gain lifetime access and full privileges.
                 </p>
               </div>
             </div>
@@ -134,7 +133,7 @@ export default function Plans() {
                 )}
 
                 {/* Plan name */}
-                <h3 className={`text-2xl font-black font-serif uppercase tracking-wider mb-2 ${plan.popular ? 'text-background' : 'text-foreground'}`}>
+                <h3 className={`text-2xl font-black font-serif uppercase tracking-wider mb-2 text-center ${plan.popular ? 'text-background' : 'text-foreground'}`}>
                   {plan.name}
                 </h3>
 

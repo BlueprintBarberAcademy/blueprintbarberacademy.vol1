@@ -128,6 +128,9 @@ function CheckoutContent() {
                   </optgroup>
                   <optgroup label="Ambassadors">
                     <option value="vladyslav-australia">Vladyslav — Australia</option>
+                    <option value="david-argentina">David Godoy — Argentina</option>
+                    <option value="juliano-brazil">Juliano Nunes — Brazil</option>
+                    <option value="outsiders-greece">Outsiders Barbershop — Greece</option>
                     <option value="andi-indonesia">Andi — Indonesia</option>
                     <option value="jordi-mexico">Jordi — Mexico</option>
                     <option value="dunkan-netherlands">Dunkan — Netherlands</option>
@@ -171,14 +174,17 @@ function CheckoutContent() {
                       <option>United States</option>
                       <option>United Kingdom</option>
                       <option>Germany</option>
-                      <option>Netherlands</option>
+                      <option>Argentina</option>
                       <option>Australia</option>
-                      <option>Sweden</option>
+                      <option>Brazil</option>
+                      <option>Greece</option>
                       <option>Indonesia</option>
                       <option>Mexico</option>
-                      <option>South Korea</option>
+                      <option>Netherlands</option>
                       <option>Portugal</option>
                       <option>Singapore</option>
+                      <option>South Korea</option>
+                      <option>Sweden</option>
                     </select>
                     <ChevronDown className="w-4 h-4 text-foreground/40 absolute right-4 pointer-events-none" />
                   </div>
