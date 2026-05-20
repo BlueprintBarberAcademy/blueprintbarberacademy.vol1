@@ -34,7 +34,7 @@ export default function FinalCTA() {
           Real Results
         </h2>
         <p className="text-lg text-foreground/80 font-medium text-balance max-w-2xl tracking-widest">
-          This course gives you step-by-step barbering systems used in barbershops — from clean haircuts to client retention.
+          This course gives you a step-by-step barbering system used in barbershops — from clean haircuts to client retention.
         </p>
       </div>
 
