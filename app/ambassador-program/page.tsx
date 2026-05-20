@@ -21,7 +21,7 @@ const benefits = [
   {
     number: '03',
     title: 'Systematisations',
-    description: 'Receive a system process that actually works is used. Service delivery, salesmanship, education and business.',
+    description: 'Receive a system process that actually works and is actively used. Service delivery, salesmanship, education and business.',
   },
   {
     number: '04',
@@ -36,7 +36,7 @@ const benefits = [
   {
     number: '06',
     title: 'Priority',
-    description: 'First access to Blueprint workshops, masterclasses, and live events. Online work on-errors.',
+    description: 'First access to Blueprint workshops, masterclasses, and live events. Online work on errors.',
   },
 ];
 
@@ -44,7 +44,7 @@ const steps = [
   {
     step: '01',
     title: 'Access & Apply',
-    description: 'Access the course and Fill out the application form with your contact information details and experience.',
+    description: 'Access the course and fill out the application form with your contact information details and experience.',
   },
   {
     step: '02',

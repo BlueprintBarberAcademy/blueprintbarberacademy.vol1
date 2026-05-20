@@ -1,7 +1,7 @@
 const blocks = [
   {
     title: "No Limit",
-    desc: "Learn when you have free time and inspirations.",
+    desc: "Learn when you have free time and inspiration.",
   },
   {
     title: "Real Time Updates",
@@ -12,7 +12,7 @@ const blocks = [
     desc: "Video manual with complete service process. Detailed breakdown of different techniques.",
   },
   {
-    title: "Tasted for decades",
+    title: "Tested for decades",
     desc: "Refined by experience of leading barbers of America & Europe throughout time.",
   },
   {
@@ -21,7 +21,7 @@ const blocks = [
   },
   {
     title: "VIP treatment",
-    desc: "After working through the course, send photo/video confirmation to work on-errors. You are never alone!",
+    desc: "After working through the course, send photo/video confirmation to work on errors. You are never alone!",
   }
 ];
 

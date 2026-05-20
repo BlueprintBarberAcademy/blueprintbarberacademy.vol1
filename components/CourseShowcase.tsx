@@ -17,7 +17,7 @@ const courses = [
   { title: "9. Sanitation. Chemistry. First aid kit", image: "/episodes/episode9.png" },
   { title: "10. Ethics & Salesmanship. In-Shop behavior", image: "/episodes/episode10.png" },
   { title: "11. Signature haircuts", subtitle: "(+40 pcs.)", image: "/episodes/episode11.png" },
-  { title: "Special: Business & Definitions of Craftsmanship", image: "/episodes/spesial.png", isSpecial: true }
+  { title: "Special: Business & Definitions of Craftsmanship", image: "/episodes/special.png", isSpecial: true }
 ];
 
 export default function CourseShowcase() {

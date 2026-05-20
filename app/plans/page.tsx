@@ -52,7 +52,7 @@ const plans = [
     price: "$250",
     originalPrice: "$1,000",
     period: "lifetime",
-    desc: "For barbers or those who want to learn the proffesion in a proper, systematic way.",
+    desc: "For barbers or those who want to learn the profession in a proper, systematic way.",
     features: [
       "Unlimited access to learn at your own pace",
       "Real-time updates & active participation",

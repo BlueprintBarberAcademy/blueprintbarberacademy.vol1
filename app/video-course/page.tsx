@@ -19,7 +19,7 @@ const courses = [
   { title: "9. Sanitation. Chemistry. First aid kit", image: "/episodes/episode9.png", duration: "20 min", educator: "Master Barber" },
   { title: "10. Ethics & Salesmanship. In-Shop behavior", image: "/episodes/episode10.png", duration: "20 min", educator: "Master Barber" },
   { title: "11. Signature haircuts", subtitle: "(+40 pcs.)", image: "/episodes/episode11.png", duration: "3h 20m", educator: "Master Barber" },
-  { title: "Special: Business & Definitions of Craftsmanship", image: "/episodes/spesial.png", duration: "25 min", educator: "Master Barber" }
+  { title: "Special: Business & Definitions of Craftsmanship", image: "/episodes/special.png", duration: "25 min", educator: "Master Barber" }
 ];
 
 export default function VideoCourse() {

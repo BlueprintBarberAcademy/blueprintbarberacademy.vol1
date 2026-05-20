@@ -19,7 +19,7 @@ const services: Service[] = [
   },
   {
     title: 'Beard Trim (+ Razor)',
-    desc: 'Expert beard shaping and length reduction, finished with crisp, clean lines using a straight razor and tow towel.',
+    desc: 'Expert beard shaping and length reduction, finished with crisp, clean lines using a straight razor and hot towel.',
     img: '/service/beard.png',
   },
   {
