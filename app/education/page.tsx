@@ -231,19 +231,19 @@ export default function Education() {
                     <option value="mykyta-poland">Mykyta V. — Poland (Master Barber)</option>
                   </optgroup>
                   <optgroup label="Ambassadors">
-                    <option value="vladyslav-australia">Vladyslav — Australia</option>
-                    <option value="david-argentina">David Godoy — Argentina</option>
-                    <option value="juliano-brazil">Juliano Nunes — Brazil</option>
-                    <option value="outsiders-greece">Outsiders Barbershop — Greece</option>
-                    <option value="andi-indonesia">Andi — Indonesia</option>
+                    <option value="vladyslav-australia">Vladyslav S. — Australia</option>
+                    <option value="david-argentina">Ivan-David G. — Argentina</option>
+                    <option value="juliano-brazil">Juliano N. — Brazil</option>
+                    <option value="outsiders-greece">Outsiders Bbs. — Greece</option>
+                    <option value="andi-indonesia">Andi F. — Indonesia</option>
                     <option value="jordi-mexico">Jordi — Mexico</option>
-                    <option value="dunkan-netherlands">Dunkan — Netherlands</option>
-                    <option value="podciety-poland">Podciety — Poland</option>
-                    <option value="rufino-portugal">Rufino — Portugal</option>
-                    <option value="drfaz-singapore">Dr. Faz — Singapore</option>
+                    <option value="duncan-netherlands">Duncan B. — Netherlands</option>
+                    <option value="mikolaj-poland">Mikolaj M. — Poland</option>
+                    <option value="joao-portugal">Joao R. — Portugal</option>
+                    <option value="drfaz-singapore">Dr.Faz — Singapore</option>
                     <option value="zay-southkorea">Zay — South Korea</option>
-                    <option value="helena-sweden">Helena — Sweden</option>
-                    <option value="mauricio-usa">Mauricio — USA</option>
+                    <option value="helen-sweden">Helen — Sweden</option>
+                    <option value="mauricio-usa">Mauricio M. — USA</option>
                   </optgroup>
                 </select>
               </div>

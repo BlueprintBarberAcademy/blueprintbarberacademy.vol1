@@ -19,19 +19,19 @@ const episodes = [
 ];
 
 const ambassadors = [
-  { image: '/ambassadors/poland.png', name: 'Podciety', country: 'Poland' },
+  { image: '/ambassadors/poland.png', name: 'Mikolaj M.', country: 'Poland' },
   { image: '/ambassadors/mexico.png', name: 'Jordi', country: 'Mexico' },
-  { image: '/ambassadors/portugal.png', name: 'Rufino', country: 'Portugal' },
-  { image: '/ambassadors/netherlands.png', name: 'Dunkan', country: 'Netherlands' },
-  { image: '/ambassadors/indonesia.png', name: 'Andi', country: 'Indonesia' },
-  { image: '/ambassadors/usa.png', name: 'Mauricio', country: 'USA' },
-  { image: '/ambassadors/australia.png', name: 'Vladyslav', country: 'Australia' },
+  { image: '/ambassadors/portugal.png', name: 'Joao R.', country: 'Portugal' },
+  { image: '/ambassadors/netherlands.png', name: 'Duncan B.', country: 'Netherlands' },
+  { image: '/ambassadors/indonesia.png', name: 'Andi F.', country: 'Indonesia' },
+  { image: '/ambassadors/usa.png', name: 'Mauricio M.', country: 'USA' },
+  { image: '/ambassadors/australia.png', name: 'Vladyslav S.', country: 'Australia' },
   { image: '/ambassadors/south korea.png', name: 'Zay', country: 'South Korea' },
-  { image: '/ambassadors/singapore.png', name: 'Dr. Faz', country: 'Singapore' },
-  { image: '/ambassadors/sweden.png', name: 'Helena', country: 'Sweden' },
-  { image: '/ambassadors/argentina.png', name: 'David Godoy', country: 'Argentina' },
-  { image: '/ambassadors/brasil.png', name: 'Juliano Nunes', country: 'Brazil' },
-  { image: '/ambassadors/greece.png', name: 'Outsiders Barbershop', country: 'Greece' },
+  { image: '/ambassadors/singapore.png', name: 'Dr.Faz', country: 'Singapore' },
+  { image: '/ambassadors/sweden.png', name: 'Helen', country: 'Sweden' },
+  { image: '/ambassadors/argentina.png', name: 'Ivan-David G.', country: 'Argentina' },
+  { image: '/ambassadors/brasil.png', name: 'Juliano N.', country: 'Brazil' },
+  { image: '/ambassadors/greece.png', name: 'Outsiders Bbs.', country: 'Greece' },
 ];
 
 export default function Hero() {
@@ -73,8 +73,8 @@ export default function Hero() {
           </div>
 
           {/* Heading (Explanation focus) */}
-          <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-black text-foreground mb-6 sm:mb-8 tracking-tighter leading-tight uppercase text-balance">
-            Master the Full Barber Profession Online - From Tools to Salesmanship
+          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-black text-foreground mb-6 sm:mb-8 tracking-tighter leading-tight uppercase text-balance">
+            Master the Full barber proffession Online - from tools to salesmanship
           </h1>
 
           <div className="w-16 sm:w-24 h-1 sm:h-2 bg-accent mb-6 sm:mb-8"></div>
