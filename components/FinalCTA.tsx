@@ -33,8 +33,8 @@ export default function FinalCTA() {
         <h2 className="text-5xl md:text-7xl font-serif font-black text-foreground uppercase tracking-tighter leading-none mb-6">
           Real Results
         </h2>
-        <p className="text-lg text-foreground/80 font-medium text-balance max-w-2xl lowercase tracking-widest">
-          Thousands of students taught worldwide. Countless classic haircuts executed with precision. Don&apos;t just trust our words, look at our track record.
+        <p className="text-lg text-foreground/80 font-medium text-balance max-w-2xl tracking-widest">
+          This course gives you step-by-step barbering systems used in barbershops — from clean haircuts to client retention.
         </p>
       </div>
 
