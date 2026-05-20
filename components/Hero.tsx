@@ -63,33 +63,33 @@ export default function Hero() {
         <div className="flex flex-col items-center lg:items-start text-center lg:text-left max-w-xl lg:max-w-lg xl:max-w-xl">
 
           {/* Pre-heading */}
-          <div className="flex flex-col items-center lg:items-start mb-4 sm:mb-6">
-            <span className="text-lg sm:text-xl md:text-2xl font-black uppercase tracking-[0.3em] text-accent mb-2">
+          <div className="flex flex-col items-center lg:items-start mb-4 sm:mb-5">
+            <span className="text-sm sm:text-base md:text-lg font-black uppercase tracking-[0.3em] text-accent mb-1">
               Online
             </span>
-            <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black uppercase tracking-tight text-foreground leading-none mb-6">
+            <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-black uppercase tracking-tight text-foreground leading-none mb-4">
               Traditional Barber Academy
             </span>
           </div>
 
           {/* Heading (Explanation focus) */}
-          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-black text-foreground mb-6 sm:mb-8 tracking-tighter leading-tight uppercase text-balance">
+          <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-black text-foreground mb-4 sm:mb-6 tracking-tighter leading-tight uppercase text-balance">
             Master the Full barber profession Online - from tools to salesmanship
           </h1>
 
-          <div className="w-16 sm:w-24 h-1 sm:h-2 bg-accent mb-6 sm:mb-8"></div>
+          <div className="w-16 sm:w-24 h-1 bg-accent mb-4 sm:mb-6"></div>
 
           {/* Target Audience */}
-          <p className="text-foreground/80 font-medium text-lg sm:text-xl md:text-2xl max-w-2xl mx-auto lg:mx-0 mb-10 sm:mb-12 leading-relaxed text-balance">
+          <p className="text-foreground/80 font-medium text-base sm:text-lg md:text-xl max-w-2xl mx-auto lg:mx-0 mb-6 sm:mb-8 leading-relaxed text-balance">
             Designed for <strong className="text-foreground">Experienced barbers</strong> elevating their craft, <strong className="text-foreground">Beginners</strong> mastering the profession, and <strong className="text-foreground">Men</strong> developing the habit of self-care.
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-5 w-full sm:w-auto">
-            <a href="/plans" className="bg-primary text-background border-2 border-foreground px-10 py-4 text-sm font-bold uppercase tracking-widest hover:bg-accent transition-colors shadow-[4px_4px_0_0_#17193b]">
+          <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mb-6 lg:mb-0">
+            <a href="/plans" className="bg-primary text-background border-2 border-foreground px-8 py-3.5 text-sm font-bold uppercase tracking-widest hover:bg-accent transition-colors shadow-[4px_4px_0_0_#17193b]">
               Join Academy
             </a>
-            <a href="#courses" className="bg-background border-2 border-foreground text-foreground px-10 py-4 text-sm font-bold uppercase tracking-widest hover:bg-foreground hover:text-background transition-colors shadow-[4px_4px_0_0_#17193b]">
+            <a href="#courses" className="bg-background border-2 border-foreground text-foreground px-8 py-3.5 text-sm font-bold uppercase tracking-widest hover:bg-foreground hover:text-background transition-colors shadow-[4px_4px_0_0_#17193b]">
               Blueprint Contents
             </a>
           </div>
