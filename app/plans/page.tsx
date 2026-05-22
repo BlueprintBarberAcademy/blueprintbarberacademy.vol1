@@ -25,7 +25,7 @@ const plans = [
   {
     id: 'ambassador',
     name: "Ambassador",
-    badge: "Best Value",
+    badge: "By Approval Only",
     price: "$250",
     originalPrice: "$1,000",
     period: "lifetime",
