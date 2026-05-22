@@ -14,10 +14,9 @@ export default function ApplicationFormModal({ countryName, onClose }: Applicati
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
+    email: '',
     experience: '',
-    shopName: '',
     portfolioLinks: '',
-    workLocation: '',
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -34,8 +33,8 @@ export default function ApplicationFormModal({ countryName, onClose }: Applicati
       console.error('Error submitting application:', error);
     }
 
-    // Redirect to the checkout page automatically
-    router.push('/checkout?plan=ambassador');
+    // Redirect to the checkout page automatically, passing email as query param if desired
+    router.push(`/checkout?plan=ambassador&email=${encodeURIComponent(formData.email)}`);
   };
 
   const handleChange = (field: string, value: string) => {
@@ -87,6 +86,21 @@ export default function ApplicationFormModal({ countryName, onClose }: Applicati
             />
           </div>
 
+          {/* Email */}
+          <div>
+            <label className="block text-xs font-bold uppercase tracking-widest text-foreground mb-2">
+              Email Address <span className="text-accent">*</span>
+            </label>
+            <input
+              type="email"
+              required
+              value={formData.email}
+              onChange={(e) => handleChange('email', e.target.value)}
+              placeholder="barber@example.com"
+              className="w-full border-2 border-foreground bg-secondary px-4 py-3 text-foreground focus:outline-none focus:border-accent transition-colors rounded-none text-sm"
+            />
+          </div>
+
           {/* Experience */}
           <div>
             <label className="block text-xs font-bold uppercase tracking-widest text-foreground mb-2">
@@ -100,21 +114,6 @@ export default function ApplicationFormModal({ countryName, onClose }: Applicati
               value={formData.experience}
               onChange={(e) => handleChange('experience', e.target.value)}
               placeholder="5"
-              className="w-full border-2 border-foreground bg-secondary px-4 py-3 text-foreground focus:outline-none focus:border-accent transition-colors rounded-none text-sm"
-            />
-          </div>
-
-          {/* Shop Name */}
-          <div>
-            <label className="block text-xs font-bold uppercase tracking-widest text-foreground mb-2">
-              Shop / Salon Name <span className="text-accent">*</span>
-            </label>
-            <input
-              type="text"
-              required
-              value={formData.shopName}
-              onChange={(e) => handleChange('shopName', e.target.value)}
-              placeholder="Classic Barber Studio"
               className="w-full border-2 border-foreground bg-secondary px-4 py-3 text-foreground focus:outline-none focus:border-accent transition-colors rounded-none text-sm"
             />
           </div>
@@ -135,20 +134,6 @@ export default function ApplicationFormModal({ countryName, onClose }: Applicati
             <p className="text-[10px] text-foreground/50 font-bold uppercase tracking-widest mt-1">
               Links to your work on social media and your shop location
             </p>
-          </div>
-
-          {/* Work Location */}
-          <div>
-            <label className="block text-xs font-bold uppercase tracking-widest text-foreground mb-2">
-              Work Location / Google Maps Link
-            </label>
-            <input
-              type="text"
-              value={formData.workLocation}
-              onChange={(e) => handleChange('workLocation', e.target.value)}
-              placeholder="https://maps.google.com/..."
-              className="w-full border-2 border-foreground bg-secondary px-4 py-3 text-foreground focus:outline-none focus:border-accent transition-colors rounded-none text-sm"
-            />
           </div>
 
           {/* Submit */}

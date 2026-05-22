@@ -1,13 +1,36 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import { supabaseAdmin } from '@/lib/supabase';
 
 export async function POST(req: Request) {
   try {
     const data = await req.json();
+    const { name, email, experience, portfolioLinks, country } = data;
 
-    // Create a transporter. In production, you'll want to use proper environment variables for this.
-    // Ensure you have EMAIL_USER and EMAIL_PASS in your .env.local file.
-    // If using Gmail, you need to generate an "App Password" in your Google Account settings.
+    // 1. Save to Supabase DB (ambassador_applications table)
+    try {
+      const { error } = await supabaseAdmin
+        .from('ambassador_applications')
+        .insert([
+          {
+            name,
+            email,
+            experience: String(experience),
+            portfolio_links: portfolioLinks,
+            country,
+          }
+        ]);
+
+      if (error) {
+        console.error('❌ Supabase error saving ambassador application:', error.message);
+      } else {
+        console.log('✅ Successfully saved ambassador application to Supabase DB');
+      }
+    } catch (dbError) {
+      console.error('❌ Database insertion failed:', dbError);
+    }
+
+    // 2. Create a transporter for email notification
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
@@ -19,16 +42,15 @@ export async function POST(req: Request) {
     const mailOptions = {
       from: process.env.EMAIL_USER || 'blueprintbarberacademy@gmail.com',
       to: 'blueprintbarberacademy@gmail.com',
-      subject: `New Ambassador Application: ${data.name} from ${data.country}`,
+      subject: `New Ambassador Application: ${name} from ${country}`,
       text: `
 New Ambassador Application Received (Automatically Accepted)
 
-Name: ${data.name}
-Country: ${data.country}
-Years of Experience: ${data.experience}
-Shop/Salon Name: ${data.shopName}
-Portfolio Links: ${data.portfolioLinks}
-Work Location: ${data.workLocation}
+Name: ${name}
+Email: ${email}
+Country: ${country}
+Years of Experience: ${experience}
+Portfolio Links: ${portfolioLinks}
       `,
     };
 
@@ -37,8 +59,8 @@ Work Location: ${data.workLocation}
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error('Email sending error:', error);
-    // Even if email fails (e.g. missing credentials), we return success so the user is still redirected to checkout.
-    return NextResponse.json({ success: true, error: 'Email configuration missing, but application processed.' });
+    console.error('API execution error:', error);
+    // Even if email/database fails, we return success so the user is still redirected to checkout.
+    return NextResponse.json({ success: true, error: 'Application processed with errors.' });
   }
 }
