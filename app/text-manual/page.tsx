@@ -8,18 +8,18 @@ import { BookOpen } from 'lucide-react';
 import EpisodeModal, { episodeContents } from '@/components/EpisodeModal';
 
 const courses = [
-  { title: "1. History of Barbering. Main principle", image: "/episodes/episode1.png", educator: "Master Barber" },
-  { title: "2. Tools. Personal Kit", image: "/episodes/episode2.png", educator: "Master Barber" },
-  { title: "3. Honing & Stropping. Exercises for Shaving", image: "/episodes/episode3.png", educator: "Master Barber" },
-  { title: "4. Shaving. Home shaving", image: "/episodes/episode4.png", educator: "Master Barber" },
-  { title: "5. Clipping. Self fading", image: "/episodes/episode5.png", educator: "Master Barber" },
-  { title: "6. Trims. Self scissoring", image: "/episodes/episode6.png", educator: "Master Barber" },
-  { title: "7. Hairdrying. Beard trim. Home Edition", image: "/episodes/episode7.png", educator: "Master Barber" },
+  { title: "1. History of Barbering", image: "/episodes/episode1.png", educator: "Master Barber" },
+  { title: "2. Tools", image: "/episodes/episode2.png", educator: "Master Barber" },
+  { title: "3. Honing & Stropping", image: "/episodes/episode3.png", educator: "Master Barber" },
+  { title: "4. Shaving", image: "/episodes/episode4.png", educator: "Master Barber" },
+  { title: "5. Clipping", image: "/episodes/episode5.png", educator: "Master Barber" },
+  { title: "6. Trims", image: "/episodes/episode6.png", educator: "Master Barber" },
+  { title: "7. Drying. Beard trim. Home Edition", image: "/episodes/episode7.png", educator: "Master Barber" },
   { title: "8. Cosmetics, Facial/Scalp treatment", image: "/episodes/episode8.png", educator: "Master Barber" },
   { title: "9. Sanitation. Chemistry. First aid kit", image: "/episodes/episode9.png", educator: "Master Barber" },
   { title: "10. Ethics & Salesmanship. In-Shop behavior", image: "/episodes/episode10.png", educator: "Master Barber" },
   { title: "11. Signature haircuts", subtitle: "(+40 pcs.)", image: "/episodes/episode11.png", educator: "Master Barber" },
-  { title: "Special: Business & Definitions of Craftsmanship", image: "/episodes/special.png", educator: "Master Barber" }
+  { title: "Special: Business & Definitions of craftsmanship", image: "/episodes/special.png", educator: "Master Barber" }
 ];
 
 export default function TextManual() {

@@ -6,18 +6,18 @@ import { Play } from 'lucide-react';
 import EpisodeModal, { episodeContents } from './EpisodeModal';
 
 const courses = [
-  { title: "1. History of Barbering. Main principle", image: "/episodes/episode1.png" },
-  { title: "2. Tools. Personal Kit", image: "/episodes/episode2.png" },
-  { title: "3. Honing & Stropping. Exercises for Shaving", image: "/episodes/episode3.png" },
-  { title: "4. Shaving. Home shaving", image: "/episodes/episode4.png" },
-  { title: "5. Clipping. Self fading", image: "/episodes/episode5.png" },
-  { title: "6. Trims. Self scissoring", image: "/episodes/episode6.png" },
-  { title: "7. Hairdrying. Beard trim. Home Edition", image: "/episodes/episode7.png" },
+  { title: "1. History of Barbering", image: "/episodes/episode1.png" },
+  { title: "2. Tools", image: "/episodes/episode2.png" },
+  { title: "3. Honing & Stropping", image: "/episodes/episode3.png" },
+  { title: "4. Shaving", image: "/episodes/episode4.png" },
+  { title: "5. Clipping", image: "/episodes/episode5.png" },
+  { title: "6. Trims", image: "/episodes/episode6.png" },
+  { title: "7. Drying. Beard trim. Home Edition", image: "/episodes/episode7.png" },
   { title: "8. Cosmetics, Facial/Scalp treatment", image: "/episodes/episode8.png" },
   { title: "9. Sanitation. Chemistry. First aid kit", image: "/episodes/episode9.png" },
   { title: "10. Ethics & Salesmanship. In-Shop behavior", image: "/episodes/episode10.png" },
   { title: "11. Signature haircuts", subtitle: "(+40 pcs.)", image: "/episodes/episode11.png" },
-  { title: "Special: Business & Definitions of Craftsmanship", image: "/episodes/special.png", isSpecial: true }
+  { title: "Special: Business & Definitions of craftsmanship", image: "/episodes/special.png", isSpecial: true }
 ];
 
 export default function CourseShowcase() {

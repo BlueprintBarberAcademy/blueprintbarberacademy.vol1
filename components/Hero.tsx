@@ -4,18 +4,18 @@ import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 
 const episodes = [
-  "1 Episode: History of Barbering. Main principle",
-  "2 Episode: Tools. Personal Kit",
-  "3 Episode: Honing & Stropping. Exercises for Shaving",
-  "4 Episode: Shaving. Home shaving",
-  "5 Episode: Clipping. Self fading",
-  "6 Episode: Trims. Self scissoring",
-  "7 Episode: Hairdrying. Beard trim. Home Edition",
-  "8 Episode: Cosmetics, Facial/Scalp treat.",
+  "1 Episode: History of Barbering",
+  "2 Episode: Tools",
+  "3 Episode: Honing & Stropping",
+  "4 Episode: Shaving",
+  "5 Episode: Clipping",
+  "6 Episode: Trims",
+  "7 Episode: Drying. Beard trim. Home Edition",
+  "8 Episode: Cosmetics, Facial/Scalp treatment",
   "9 Episode: Sanitation. Chemistry. First aid kit",
   "10 Episode: Ethics & Salesmanship. In-Shop behavior",
-  "11 Episode: Signature haircuts (+40 pcs.)",
-  "Special: Business & Definitions of Craftsmanship (AMBASSADORS EXCLUSIVE)"
+  "11 Episode: Signature haircuts",
+  "Special Episode: Business & Definitions of craftsmanship"
 ];
 
 const ambassadors = [

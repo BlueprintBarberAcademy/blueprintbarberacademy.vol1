@@ -2,18 +2,25 @@
 
 import { X, BookOpen, Clock } from 'lucide-react';
 
+export interface TopicSection {
+  section: string;
+  items: string[];
+}
+
+export type Topic = string | TopicSection;
+
 export interface EpisodeContent {
   title: string;
   subtitle?: string;
   pages: number;
   minutes: number;
-  topics: string[];
+  topics: Topic[];
   isSpecial?: boolean;
 }
 
 export const episodeContents: EpisodeContent[] = [
   {
-    title: "1. History of Barbering. Main principle",
+    title: "1. History of Barbering",
     pages: 31,
     minutes: 30,
     topics: [
@@ -28,11 +35,10 @@ export const episodeContents: EpisodeContent[] = [
       "The decline of the profession",
       "Trend",
       "Principles of the Barbers Association",
-      "Appearance, try everything that attracts you to find your perfect personal set of tools",
     ],
   },
   {
-    title: "2. Tools. Personal Kit",
+    title: "2. Tools",
     pages: 49,
     minutes: 50,
     topics: [
@@ -40,10 +46,10 @@ export const episodeContents: EpisodeContent[] = [
       "Shavette",
       "T-blade",
       "Foil Shaver",
-      "Hone / Whetstone",
-      "Strop / Belt",
-      "Scissors / Shears",
-      "Thinners / Blenders",
+      "Hone/ Whetstone",
+      "Strop/Belt",
+      "Scissors/Shears",
+      "Thinners/Blenders",
       "Mustache scissors",
       "Clipper",
       "Trimmer",
@@ -51,17 +57,10 @@ export const episodeContents: EpisodeContent[] = [
       "Brush",
       "Comb",
       "Flattoper",
-      "Picker",
-      "Neck Dust",
-      "Shaving Brush & Mug",
-      "Supporting Tools",
-      "Leather Roll & Kitbag",
-      "Cape & Neck Strips",
-      "Uniform",
     ],
   },
   {
-    title: "3. Honing & Stropping. Exercises for Shaving",
+    title: "3. Honing & Stropping",
     pages: 16,
     minutes: 30,
     topics: [
@@ -74,7 +73,7 @@ export const episodeContents: EpisodeContent[] = [
     ],
   },
   {
-    title: "4. Shaving. Home shaving",
+    title: "4. Shaving",
     pages: 40,
     minutes: 75,
     topics: [
@@ -82,61 +81,66 @@ export const episodeContents: EpisodeContent[] = [
       "Face Shaving",
       "Head Shaving",
       "Outlines Shaving",
-      "Home Shaving — Face",
-      "Home Shaving — Head",
+      {
+        section: "Home Shaving",
+        items: ["Face", "Head"],
+      },
     ],
   },
   {
-    title: "5. Clipping. Self fading",
+    title: "5. Clipping",
     pages: 45,
     minutes: 65,
     topics: [
       "Scalp",
       "How to use a clipper",
       "Position at the Chair",
-      "Axiom",
-      "Contour",
-      "Short Contour",
-      "Half Crown",
-      "Full Crown",
-      "Medium Contour",
+      "Clipper over comb",
+      "Axiom On-fingers",
+      {
+        section: "Contour",
+        items: ["Short", "Half Crown", "Full Crown", "Medium"],
+      },
       "Curly Hair",
       "Self fading",
     ],
   },
   {
-    title: "6. Trims. Self scissoring",
+    title: "6. Trims",
     pages: 40,
     minutes: 60,
     topics: [
       "Holy Trinity",
-      "Sectioning",
-      "Shape",
-      "Scissors over the comb",
-      "Axiom",
-      "Low Contour",
-      "Short trim",
-      "Medium trim",
-      "Long trim",
-      "Children & Ladies",
+      {
+        section: "Sectioning",
+        items: ["Scissors over comb", "Head control"],
+      },
+      "Axiom On-fingers",
+      {
+        section: "Low Contour",
+        items: ["Short trim", "Medium trim", "Long trim"],
+      },
+      "Children&Ladies",
       "Self trim",
     ],
   },
   {
-    title: "7. Hairdrying. Beard trim. Home Edition",
+    title: "7. Drying. Beard trim. Home Edition",
     pages: 40,
     minutes: 45,
     topics: [
-      "Hairdrying — How to hold",
-      "Hairdrying — How to use",
-      "Hairdrying — 3 Directions",
-      "Beard trim — Shapes",
-      "Beard trim — Clipper over the comb",
-      "Beard trim — Razor outlines",
-      "Shampoo",
-      "Home Edition — Drying",
-      "Home Edition — Beard trim",
-      "Home Edition — Shampoo",
+      {
+        section: "Hairdrying",
+        items: ["3 Directions"],
+      },
+      {
+        section: "Beard trimming",
+        items: ["Shapes", "Clipper over the comb", "Razor outlines"],
+      },
+      {
+        section: "Home Edition",
+        items: ["Drying", "Beard trim"],
+      },
     ],
   },
   {
@@ -144,14 +148,22 @@ export const episodeContents: EpisodeContent[] = [
     pages: 20,
     minutes: 30,
     topics: [
-      "Scalp — Shampoo",
-      "Scalp — Conditioner",
-      "Scalp — Lotion",
-      "Hair — Tonic",
-      "Hair — Pomade",
-      "Face — Daily Cream",
-      "Face — Shaving",
-      "Face — Beard care",
+      {
+        section: "Scalp",
+        items: ["Shampoo", "Conditioner", "Lotion"],
+      },
+      {
+        section: "Hair",
+        items: ["Tonic", "Pomade"],
+      },
+      {
+        section: "Face",
+        items: ["Daily Cream", "Beard care"],
+      },
+      {
+        section: "Diseases",
+        items: ["Scalp"],
+      },
     ],
   },
   {
@@ -163,12 +175,18 @@ export const episodeContents: EpisodeContent[] = [
       "Infection",
       "Disinfectants",
       "Antiseptics",
-      "Sterilisation",
-      "Moist Heat",
-      "Dry Heat",
-      "Chemicals",
-      "Vapor",
-      "Solutions",
+      {
+        section: "Sterilisation",
+        items: ["Moist Heat", "Dry Heat", "Chemicals", "Vapor", "Solutions"],
+      },
+      "Elements",
+      "Chemical Change",
+      "Analysis",
+      "Combinations",
+      "Reactions",
+      "Acids",
+      "Group of elements",
+      "First Aid Kit",
     ],
   },
   {
@@ -177,13 +195,14 @@ export const episodeContents: EpisodeContent[] = [
     minutes: 20,
     topics: [
       "Ethics for Men",
-      "Salesman — Price",
-      "Salesman — Services",
-      "Salesman — Products",
-      "Salesman — Classes",
-      "Salesman — Collaborations",
-      "Behavior in-shop — For barbers",
-      "Behavior in-shop — For patrons",
+      {
+        section: "Salesman",
+        items: ["Price", "Services", "Products", "Classes"],
+      },
+      {
+        section: "Behavior in-shop",
+        items: ["For barbers", "For patrons"],
+      },
     ],
   },
   {
@@ -192,15 +211,17 @@ export const episodeContents: EpisodeContent[] = [
     pages: 70,
     minutes: 200,
     topics: [
+      "Style subcultures",
+      "1920-2020",
       "Head Shaving",
       "South side fade",
-      "10mm bzzz cut",
+      "Bzzz cut",
       "Military flattop",
       "Texture flattop",
       "Crew with a hard part",
-      "High'n'tight (no part)",
+      "High’n’tight (no part)",
       "Natural side part",
-      "Side part pompadour (Scumbag)",
+      "Scumbag",
       "Quiff",
       "Short pompadour",
       "Scumbag boogie",
@@ -209,21 +230,30 @@ export const episodeContents: EpisodeContent[] = [
       "Low contour pomp",
       "Long trim side part with taper",
       "Long trim pomp with temple fade",
-      "Long trim with taper",
+      "Longtrim with taper",
       "Middle part",
-      "Boogie / Elephant trunk",
-      "Crybaby / Ted",
-      "Flattop boogie",
-      "DA / Duck tail",
+      "Boogie/ Elephant trunk",
     ],
   },
   {
-    title: "Special: Business & Definitions of Craftsmanship",
+    title: "Special: Business & Definitions of craftsmanship",
     pages: 15,
     minutes: 25,
     topics: [
-      "Systematization",
+      {
+        section: "Establishing Business",
+        items: [
+          "Location",
+          "Equipment",
+          "Booth",
+          "Chair",
+          "Reception",
+          "Advertising",
+          "Bookkeeping",
+        ],
+      },
       "Scale",
+      "Systematization",
       "Longevity",
     ],
     isSpecial: true,
@@ -304,19 +334,54 @@ export default function EpisodeModal({ episode, onClose, variant = 'light' }: Ep
             Contents
           </p>
           <ul className="space-y-0">
-            {episode.topics.map((topic, i) => (
-              <li
-                key={i}
-                className={`flex items-start gap-2.5 py-2 border-b text-sm font-medium ${
-                  isDark
-                    ? 'border-background/5 text-background/80'
-                    : 'border-foreground/5 text-foreground/80'
-                } last:border-b-0`}
-              >
-                <span className="text-accent text-xs mt-0.5 flex-shrink-0">▸</span>
-                {topic}
-              </li>
-            ))}
+            {episode.topics.map((topic, i) => {
+              if (typeof topic === 'string') {
+                return (
+                  <li
+                    key={i}
+                    className={`flex items-start gap-2.5 py-2 border-b text-sm font-medium ${
+                      isDark
+                        ? 'border-background/5 text-background/80'
+                        : 'border-foreground/5 text-foreground/80'
+                    } last:border-b-0`}
+                  >
+                    <span className="text-accent text-xs mt-0.5 flex-shrink-0">▸</span>
+                    <span>{topic}</span>
+                  </li>
+                );
+              } else {
+                return (
+                  <li
+                    key={i}
+                    className={`py-2 border-b last:border-b-0 ${
+                      isDark ? 'border-background/5' : 'border-foreground/5'
+                    }`}
+                  >
+                    <div className="flex items-start gap-2.5 mb-1.5">
+                      <span className="text-accent text-xs mt-0.5 flex-shrink-0">▸</span>
+                      <span className={`text-sm font-bold uppercase tracking-wide ${
+                        isDark ? 'text-background' : 'text-foreground'
+                      }`}>
+                        {topic.section}
+                      </span>
+                    </div>
+                    <ul className="pl-6 space-y-1 my-1">
+                      {topic.items.map((subItem, j) => (
+                        <li
+                          key={j}
+                          className={`flex items-center gap-2 text-xs font-semibold ${
+                            isDark ? 'text-background/70' : 'text-foreground/70'
+                          }`}
+                        >
+                          <span className="text-accent flex-shrink-0 text-[10px]">▪</span>
+                          <span>{subItem}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
+                );
+              }
+            })}
           </ul>
         </div>
 
