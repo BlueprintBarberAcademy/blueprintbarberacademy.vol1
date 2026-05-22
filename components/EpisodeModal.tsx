@@ -2,9 +2,14 @@
 
 import { X, BookOpen, Clock } from 'lucide-react';
 
+export interface TopicSubSection {
+  subSection: string;
+  items: string[];
+}
+
 export interface TopicSection {
   section: string;
-  items: string[];
+  items: (string | TopicSubSection)[];
 }
 
 export type Topic = string | TopicSection;
@@ -196,21 +201,27 @@ export const episodeContents: EpisodeContent[] = [
     pages: 15,
     minutes: 20,
     topics: [
-      "Bacteria",
-      "Infection",
-      "Disinfectants",
-      "Antiseptics",
+      {
+        section: "Bacteria",
+        items: ["Infection"],
+      },
+      {
+        section: "Desinfectants",
+        items: ["Antiseptics"],
+      },
       {
         section: "Sterilisation",
-        items: ["Moist Heat", "Dry Heat", "Chemicals", "Vapor", "Solutions"],
+        items: ["Moist Heat", "Dry Heat"],
       },
-      "Elements",
-      "Chemical Change",
-      "Analysis",
-      "Combinations",
-      "Reactions",
-      "Acids",
-      "Group of elements",
+      "Chemicals",
+      {
+        section: "Vapor",
+        items: ["Solutions", "Elements"],
+      },
+      {
+        section: "Chemical Change",
+        items: ["Analysis", "Combinations", "Reactions", "Acids", "Group of elements"],
+      },
       "First Aid Kit",
     ],
   },
@@ -236,28 +247,52 @@ export const episodeContents: EpisodeContent[] = [
     pages: 70,
     minutes: 200,
     topics: [
-      "Style subcultures",
-      "1920-2020",
-      "Head Shaving",
-      "South side fade",
-      "Bzzz cut",
-      "Military flattop",
-      "Texture flattop",
-      "Crew with a hard part",
-      "High’n’tight (no part)",
-      "Natural side part",
-      "Scumbag",
-      "Quiff",
-      "Short pompadour",
-      "Scumbag boogie",
-      "Razor fade pomp",
-      "Low contour side part",
-      "Low contour pomp",
-      "Long trim side part with taper",
-      "Long trim pomp with temple fade",
-      "Longtrim with taper",
-      "Middle part",
-      "Boogie/ Elephant trunk",
+      {
+        section: "Style subcultures",
+        items: ["1920-2020"],
+      },
+      {
+        section: "Signature Haircuts",
+        items: [
+          {
+            subSection: "Short",
+            items: [
+              "Head Shaving",
+              "South side fade",
+              "Bzzz cut",
+              "Military flattop",
+              "Texture flattop",
+              "Crew with a hard part",
+              "High’n’tight (no part)",
+              "Side part",
+              "Quiff",
+              "Short pompadour",
+              "Scumbag boogie",
+            ],
+          },
+          {
+            subSection: "Medium",
+            items: [
+              "Razor fade pomp",
+              "Side part",
+              "Flattop boogie",
+              "Vanguard",
+            ],
+          },
+          {
+            subSection: "Long",
+            items: [
+              "Side part with tapper",
+              "Pomp. with temple fade",
+              "Longtrim (1 fing.)",
+              "Middle part (2 fing.)",
+              "Boogie/ Elephant trunk",
+              "Crybaby/ Ted",
+              "DA/Duck tail",
+            ],
+          },
+        ],
+      },
     ],
   },
   {
@@ -277,9 +312,13 @@ export const episodeContents: EpisodeContent[] = [
           "Bookkeeping",
         ],
       },
-      "Scale",
-      "Systematization",
-      "Longevity",
+      {
+        section: "Scale",
+        items: [
+          "Systematization",
+          "Longevity",
+        ],
+      },
     ],
     isSpecial: true,
   },
@@ -390,18 +429,45 @@ export default function EpisodeModal({ episode, onClose, variant = 'light' }: Ep
                         {topic.section}
                       </span>
                     </div>
-                    <ul className="pl-6 space-y-1 my-1">
-                      {topic.items.map((subItem, j) => (
-                        <li
-                          key={j}
-                          className={`flex items-center gap-2 text-xs font-semibold ${
-                            isDark ? 'text-background/70' : 'text-foreground/70'
-                          }`}
-                        >
-                          <span className="text-accent flex-shrink-0 text-[10px]">▪</span>
-                          <span>{subItem}</span>
-                        </li>
-                      ))}
+                    <ul className="pl-6 space-y-1.5 my-1">
+                      {topic.items.map((subItem, j) => {
+                        if (typeof subItem === 'string') {
+                          return (
+                            <li
+                              key={j}
+                              className={`flex items-center gap-2 text-xs font-semibold ${
+                                isDark ? 'text-background/70' : 'text-foreground/70'
+                              }`}
+                            >
+                              <span className="text-accent flex-shrink-0 text-[10px]">▪</span>
+                              <span>{subItem}</span>
+                            </li>
+                          );
+                        } else {
+                          return (
+                            <li key={j} className="space-y-1 mt-2 mb-2 last:mb-0">
+                              <div className={`text-xs font-bold uppercase tracking-wider ${
+                                isDark ? 'text-background/90' : 'text-foreground/90'
+                              }`}>
+                                {subItem.subSection}
+                              </div>
+                              <ul className="pl-4 space-y-1.5 mt-1">
+                                {subItem.items.map((nestedItem, k) => (
+                                  <li
+                                    key={k}
+                                    className={`flex items-center gap-2 text-xs font-semibold ${
+                                      isDark ? 'text-background/70' : 'text-foreground/70'
+                                    }`}
+                                  >
+                                    <span className="text-accent flex-shrink-0 text-[10px]">▪</span>
+                                    <span>{nestedItem}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </li>
+                          );
+                        }
+                      })}
                     </ul>
                   </li>
                 );
