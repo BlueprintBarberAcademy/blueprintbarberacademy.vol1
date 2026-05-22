@@ -45,6 +45,8 @@ export async function POST(req: Request) {
               plan: metadata.planId,
               referral: metadata.referral,
               country: metadata.country,
+              tax_id: metadata.taxId || null,
+              company_name: metadata.companyName || null,
               has_access: true,
             }
           ]);

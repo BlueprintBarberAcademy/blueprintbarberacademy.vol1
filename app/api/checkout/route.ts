@@ -8,7 +8,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { planId, email, firstName, lastName, country, referral } = body;
+    const { planId, email, firstName, lastName, country, referral, taxId, companyName } = body;
 
     const planDetails: Record<string, { name: string; price: number }> = {
       advance: { name: 'Advance', price: 25000 }, // $250.00
@@ -37,6 +37,8 @@ export async function POST(request: Request) {
         country,
         referral,
         planId,
+        taxId: taxId || '',
+        companyName: companyName || '',
       },
       mode: 'payment',
       success_url: `${process.env.NEXT_PUBLIC_BASE_URL}/success?session_id={CHECKOUT_SESSION_ID}`,

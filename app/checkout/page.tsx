@@ -235,6 +235,8 @@ function CheckoutContent() {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [country, setCountry] = useState('Poland');
+  const [taxId, setTaxId] = useState('');
+  const [companyName, setCompanyName] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
   const handleCheckout = async () => {
@@ -255,6 +257,8 @@ function CheckoutContent() {
           firstName,
           lastName,
           country,
+          taxId,
+          companyName,
         }),
       });
       const data = await res.json();
@@ -413,7 +417,7 @@ function CheckoutContent() {
                   />
                 </div>
                 {/* Postal + City */}
-                <div className="grid grid-cols-2">
+                <div className="grid grid-cols-2 border-b-2 border-foreground/20">
                   <div className="border-r-2 border-foreground/20">
                     <input
                       type="text"
@@ -428,6 +432,33 @@ function CheckoutContent() {
                       className="w-full px-4 py-3.5 text-sm font-bold text-foreground bg-transparent focus:outline-none placeholder:text-foreground/30"
                     />
                   </div>
+                </div>
+                {/* Tax ID */}
+                <div className="border-b-2 border-foreground/20">
+                  <input
+                    type="text"
+                    placeholder="Tax Identification Number (Optional)"
+                    value={taxId}
+                    onChange={(e) => {
+                      const val = e.target.value;
+                      setTaxId(val);
+                      if (!val.trim()) {
+                        setCompanyName('');
+                      }
+                    }}
+                    className="w-full px-4 py-3.5 text-sm font-bold text-foreground bg-transparent focus:outline-none placeholder:text-foreground/30"
+                  />
+                </div>
+                {/* Company Name */}
+                <div className={`transition-colors duration-200 ${!(taxId.trim().length > 0) ? 'bg-foreground/5' : ''}`}>
+                  <input
+                    type="text"
+                    placeholder="Company name"
+                    value={companyName}
+                    onChange={(e) => setCompanyName(e.target.value)}
+                    disabled={!(taxId.trim().length > 0)}
+                    className="w-full px-4 py-3.5 text-sm font-bold text-foreground bg-transparent focus:outline-none placeholder:text-foreground/30 disabled:cursor-not-allowed disabled:placeholder:text-foreground/20"
+                  />
                 </div>
               </div>
             </div>
