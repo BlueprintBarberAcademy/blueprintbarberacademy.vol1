@@ -24,15 +24,23 @@ export const episodeContents: EpisodeContent[] = [
     pages: 31,
     minutes: 30,
     topics: [
-      "Ancient, medieval and modern barbering",
-      "Shaving head and beard",
-      "Clergy assistants",
-      "The first hairdressing organization",
-      "The first school of surgery",
-      "Barber as a surgeon",
+      {
+        section: "Ancient, medieval and modern barbering",
+        items: ["Shaving head and beard"],
+      },
+      {
+        section: "Clergy assistants",
+        items: ["The first hairdressing organization"],
+      },
+      {
+        section: "The first school of surgery",
+        items: ["Barber as a surgeon"],
+      },
       "The origin of the barber's Pole",
-      "The collapse of the Alliance",
-      "The decline of the profession",
+      {
+        section: "The collapse of the Alliance",
+        items: ["The decline of the profession"],
+      },
       "Trend",
       "Principles of the Barbers Association",
     ],
@@ -42,21 +50,34 @@ export const episodeContents: EpisodeContent[] = [
     pages: 49,
     minutes: 50,
     topics: [
-      "Razor",
-      "Shavette",
-      "T-blade",
-      "Foil Shaver",
+      {
+        section: "Razor",
+        items: ["Shavette", "T-blade", "Foil Shaver"],
+      },
       "Hone/ Whetstone",
       "Strop/Belt",
-      "Scissors/Shears",
-      "Thinners/Blenders",
-      "Mustache scissors",
-      "Clipper",
-      "Trimmer",
+      {
+        section: "Scissors/Shears",
+        items: ["Thinners/Blenders", "Mustache scissors"],
+      },
+      {
+        section: "Clipper",
+        items: ["Trimmer"],
+      },
       "Hair Dryer",
       "Brush",
-      "Comb",
-      "Flattoper",
+      {
+        section: "Comb",
+        items: ["Flattoper", "Picker"],
+      },
+      {
+        section: "Neck Dust",
+        items: ["Shaving Brush & Mug"],
+      },
+      "Supporting Tools",
+      "Leather Roll & Kitbag",
+      "Cape & Neck Strips",
+      "Uniform",
     ],
   },
   {
@@ -64,11 +85,14 @@ export const episodeContents: EpisodeContent[] = [
     pages: 16,
     minutes: 30,
     topics: [
-      "Razor Preparation",
-      "Honing",
-      "Stropping",
-      "Exercise for Shaving",
-      "Supporting Hand",
+      {
+        section: "Razor Preparation",
+        items: ["Honning", "Stropping"],
+      },
+      {
+        section: "Exercise for Shaving",
+        items: ["Supporting Hand"],
+      },
       "Before Shaving",
     ],
   },
@@ -77,10 +101,10 @@ export const episodeContents: EpisodeContent[] = [
     pages: 40,
     minutes: 75,
     topics: [
-      "Overall: Shaving",
-      "Face Shaving",
-      "Head Shaving",
-      "Outlines Shaving",
+      {
+        section: "Overall: Shaving",
+        items: ["Face Shaving", "Head Shaving", "Outlines Shaving"],
+      },
       {
         section: "Home Shaving",
         items: ["Face", "Head"],
@@ -93,13 +117,14 @@ export const episodeContents: EpisodeContent[] = [
     minutes: 65,
     topics: [
       "Scalp",
-      "How to use a clipper",
-      "Position at the Chair",
-      "Clipper over comb",
+      {
+        section: "How to use a clipper",
+        items: ["Position at the Chair", "Clipper over comb"],
+      },
       "Axiom On-fingers",
       {
         section: "Contour",
-        items: ["Short", "Half Crown", "Full Crown", "Medium"],
+        items: ["Short Contour", "Half Crown", "Full Crown", "Medium Contour"],
       },
       "Curly Hair",
       "Self fading",
