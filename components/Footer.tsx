@@ -5,6 +5,51 @@ import { useState } from 'react';
 
 export default function Footer() {
   const [showContactModal, setShowContactModal] = useState(false);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [subject, setSubject] = useState('General Inquiry');
+  const [message, setMessage] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!name || !email || !subject || !message) {
+      alert('Please fill out all fields.');
+      return;
+    }
+
+    try {
+      setIsSubmitting(true);
+      const res = await fetch('/api/contact-inquiry', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name,
+          email,
+          subject,
+          message,
+        }),
+      });
+
+      const data = await res.json();
+      if (res.ok && data.success) {
+        alert('Дякуємо! Ваше повідомлення успішно надіслано. Ми відповімо вам найближчим часом.');
+        setShowContactModal(false);
+        // Reset form
+        setName('');
+        setEmail('');
+        setSubject('General Inquiry');
+        setMessage('');
+      } else {
+        alert(data.error || 'Щось пішло не так при надсиланні повідомлення.');
+      }
+    } catch (err) {
+      console.error(err);
+      alert('Помилка надсилання повідомлення.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <>
@@ -90,13 +135,16 @@ export default function Footer() {
               </div>
 
               {/* Contact Form */}
-              <form onSubmit={(e) => e.preventDefault()} className="flex flex-col gap-4">
+              <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                 <div>
                   <label className="block text-xs font-black uppercase tracking-widest text-foreground mb-2">Name</label>
                   <input
                     type="text"
                     placeholder="Your name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                     className="w-full border-2 border-foreground bg-background text-foreground px-4 py-3 text-sm font-bold focus:outline-none focus:border-accent transition-colors placeholder:text-foreground/30"
+                    required
                   />
                 </div>
                 <div>
@@ -104,12 +152,19 @@ export default function Footer() {
                   <input
                     type="email"
                     placeholder="your@email.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     className="w-full border-2 border-foreground bg-background text-foreground px-4 py-3 text-sm font-bold focus:outline-none focus:border-accent transition-colors placeholder:text-foreground/30"
+                    required
                   />
                 </div>
                 <div>
                   <label className="block text-xs font-black uppercase tracking-widest text-foreground mb-2">Subject</label>
-                  <select className="w-full border-2 border-foreground bg-background text-foreground px-4 py-3 text-sm font-bold focus:outline-none focus:border-accent transition-colors appearance-none">
+                  <select
+                    value={subject}
+                    onChange={(e) => setSubject(e.target.value)}
+                    className="w-full border-2 border-foreground bg-background text-foreground px-4 py-3 text-sm font-bold focus:outline-none focus:border-accent transition-colors appearance-none"
+                  >
                     <option>General Inquiry</option>
                     <option>Course Information</option>
                     <option>Education Programs</option>
@@ -123,14 +178,18 @@ export default function Footer() {
                   <textarea
                     rows={4}
                     placeholder="Your message..."
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
                     className="w-full border-2 border-foreground bg-background text-foreground px-4 py-3 text-sm font-bold focus:outline-none focus:border-accent transition-colors placeholder:text-foreground/30 resize-none"
+                    required
                   />
                 </div>
                 <button
                   type="submit"
-                  className="bg-foreground text-background border-2 border-foreground px-8 py-4 font-black uppercase tracking-widest hover:bg-accent hover:border-accent transition-colors shadow-[6px_6px_0_0_#d92b3a] flex items-center justify-center gap-3"
+                  disabled={isSubmitting}
+                  className="bg-foreground text-background border-2 border-foreground px-8 py-4 font-black uppercase tracking-widest hover:bg-accent hover:border-accent transition-colors shadow-[6px_6px_0_0_#d92b3a] flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <Send size={16} /> Send Message
+                  <Send size={16} /> {isSubmitting ? 'Sending...' : 'Send Message'}
                 </button>
               </form>
             </div>

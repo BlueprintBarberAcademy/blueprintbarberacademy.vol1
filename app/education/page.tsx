@@ -40,10 +40,56 @@ const programs = [
 export default function Education() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedTopic, setSelectedTopic] = useState('General Inquiry');
+  const [fullName, setFullName] = useState('');
+  const [email, setEmail] = useState('');
+  const [educator, setEducator] = useState('');
+  const [additionalInfo, setAdditionalInfo] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const openModal = (topic: string) => {
     setSelectedTopic(topic);
     setIsModalOpen(true);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!fullName || !email) {
+      alert('Please fill out all required fields.');
+      return;
+    }
+
+    try {
+      setIsSubmitting(true);
+      const res = await fetch('/api/education-booking', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          fullName,
+          email,
+          program: selectedTopic,
+          educator,
+          additionalInfo,
+        }),
+      });
+
+      const data = await res.json();
+      if (res.ok && data.success) {
+        alert('Дякуємо! Ваш запит на фізичний майстер-клас успішно надіслано. Ми зв’яжемося з вами найближчим часом.');
+        setIsModalOpen(false);
+        // Reset form
+        setFullName('');
+        setEmail('');
+        setEducator('');
+        setAdditionalInfo('');
+      } else {
+        alert(data.error || 'Щось пішло не так при надсиланні запиту.');
+      }
+    } catch (err) {
+      console.error(err);
+      alert('Помилка надсилання форми.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -191,12 +237,14 @@ export default function Education() {
             </div>
 
             {/* Contact Form */}
-            <form onSubmit={(e) => { e.preventDefault(); setIsModalOpen(false); }} className="flex flex-col gap-5">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-5">
               <div>
                 <label className="block text-xs font-black uppercase tracking-widest text-foreground mb-2">Full Name</label>
                 <input
                   type="text"
                   placeholder="John Doe"
+                  value={fullName}
+                  onChange={(e) => setFullName(e.target.value)}
                   className="w-full border-2 border-foreground bg-background text-foreground px-4 py-3 text-sm font-bold focus:outline-none focus:border-accent transition-colors placeholder:text-foreground/30"
                   required
                 />
@@ -206,6 +254,8 @@ export default function Education() {
                 <input
                   type="email"
                   placeholder="your@email.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   className="w-full border-2 border-foreground bg-background text-foreground px-4 py-3 text-sm font-bold focus:outline-none focus:border-accent transition-colors placeholder:text-foreground/30"
                   required
                 />
@@ -223,6 +273,8 @@ export default function Education() {
               <div>
                 <label className="block text-xs font-black uppercase tracking-widest text-foreground mb-2">Preferred Educator</label>
                 <select
+                  value={educator}
+                  onChange={(e) => setEducator(e.target.value)}
                   className="w-full border-2 border-foreground bg-background text-foreground px-4 py-3 text-sm font-bold focus:outline-none focus:border-accent transition-colors appearance-none"
                   defaultValue=""
                 >
@@ -251,15 +303,18 @@ export default function Education() {
                 <label className="block text-xs font-black uppercase tracking-widest text-foreground mb-2">Additional Information</label>
                 <textarea
                   rows={3}
+                  value={additionalInfo}
+                  onChange={(e) => setAdditionalInfo(e.target.value)}
                   placeholder="Any questions or specific requests..."
                   className="w-full border-2 border-foreground bg-background text-foreground px-4 py-3 text-sm font-bold focus:outline-none focus:border-accent transition-colors placeholder:text-foreground/30 resize-none"
                 />
               </div>
               <button
                 type="submit"
-                className="bg-foreground text-background border-2 border-foreground px-8 py-4 font-black uppercase tracking-widest hover:bg-accent hover:border-accent transition-colors shadow-[6px_6px_0_0_#d92b3a] flex items-center justify-center gap-3 mt-2"
+                disabled={isSubmitting}
+                className="bg-foreground text-background border-2 border-foreground px-8 py-4 font-black uppercase tracking-widest hover:bg-accent hover:border-accent transition-colors shadow-[6px_6px_0_0_#d92b3a] flex items-center justify-center gap-3 mt-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <Send size={16} /> Submit Request
+                <Send size={16} /> {isSubmitting ? 'Submitting...' : 'Submit Request'}
               </button>
             </form>
           </div>
