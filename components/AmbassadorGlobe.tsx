@@ -113,18 +113,13 @@ const DEMO_AMBASSADORS: Record<string, AmbassadorData> = {
     instagram: 'https://www.instagram.com/the.debonhair',
     website: 'https://duncankennethbailey.com',
     location: 'Utrecht, Netherlands',
-    bio: `Hello, let me introduce myself.
-My name is Duncan Bailey, the owner of Duncan Kenneth Bailey barbershop in Utrecht.
+    bio: `Duncan Bailey, the owner of Duncan Kenneth Bailey barbershop in Utrecht.
 After working at the Old School Barber Academy in Rotterdam for 8 years, the time had
 come to open my own doors.
 Through my large interest in art deco to mid century styles and clothing without the
 politics and I have come to embrace the quality and calm of timelessness.
 I love using this mentality as I’m cutting hair, beards or doing hot towel shaves.
-Quality over quantity means everything to me. On top of that I value experience of the
-client in the chair. That part of the service is equally important to me.
-From the interior of the shop, to the applied techniques and the slowing down to achieve
-the best possible quality for your clients. You’re taking a step back in time, where taking
-time was paramount.`,
+Quality over quantity means everything to me.`,
   },
   PRT: {
     name: 'Joao R.',
