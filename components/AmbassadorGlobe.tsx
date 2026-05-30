@@ -113,13 +113,7 @@ const DEMO_AMBASSADORS: Record<string, AmbassadorData> = {
     instagram: 'https://www.instagram.com/the.debonhair',
     website: 'https://duncankennethbailey.com',
     location: 'Utrecht, Netherlands',
-    bio: `Duncan Bailey, the owner of Duncan Kenneth Bailey barbershop in Utrecht.
-After working at the Old School Barber Academy in Rotterdam for 8 years, the time had
-come to open my own doors.
-Through my large interest in art deco to mid century styles and clothing without the
-politics and I have come to embrace the quality and calm of timelessness.
-I love using this mentality as I’m cutting hair, beards or doing hot towel shaves.
-Quality over quantity means everything to me.`,
+    bio: `Duncan Bailey, the owner of Duncan Kenneth Bailey barbershop in Utrecht. After working at the Old School Barber Academy in Rotterdam for 8 years, the time had come to open my own doors. Through my large interest in art deco to mid century styles and clothing without the politics and I have come to embrace the quality and calm of timelessness. I love using this mentality as I’m cutting hair, beards or doing hot towel shaves. Quality over quantity means everything to me.`,
   },
   PRT: {
     name: 'Joao R.',
@@ -281,7 +275,13 @@ export default function AmbassadorGlobe() {
           const yearsStr = values[3]?.trim();
           const experience = parseInt(yearsStr) || 0;
           const city = values[4]?.trim() || '';
-          const bio = values[5]?.trim() || '';
+          let bio = values[5]?.trim() || '';
+          
+          // Collapsing single newlines that cause strange word breaks, while keeping double newlines for paragraphs
+          bio = bio
+            .split(/\n\s*\n/)
+            .map(para => para.replace(/[\r\n]+/g, ' ').replace(/\s+/g, ' ').trim())
+            .join('\n\n');
           
           // Map to ISO_A3
           let isoCode = '';
