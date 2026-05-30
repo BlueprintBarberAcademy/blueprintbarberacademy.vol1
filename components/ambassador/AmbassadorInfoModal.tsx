@@ -80,7 +80,7 @@ export default function AmbassadorInfoModal({ ambassador, onClose }: AmbassadorI
         </div>
 
         {/* Bio */}
-        <p className="text-foreground/70 font-medium text-sm leading-relaxed mb-6">
+        <p className="text-foreground/70 font-medium text-sm leading-relaxed mb-6 whitespace-pre-wrap">
           {ambassador.bio}
         </p>
 

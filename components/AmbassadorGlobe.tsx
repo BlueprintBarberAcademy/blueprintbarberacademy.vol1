@@ -27,6 +27,58 @@ const BLOCKED_COUNTRIES = new Set([
   'BLR', // Belarus
 ]);
 
+// Helper to parse CSV properly (RFC 4180 compliant)
+function parseCSV(text: string): string[][] {
+  const result: string[][] = [];
+  let row: string[] = [];
+  let cell = '';
+  let inQuotes = false;
+
+  for (let i = 0; i < text.length; i++) {
+    const char = text[i];
+    const nextChar = text[i + 1];
+
+    if (inQuotes) {
+      if (char === '"') {
+        if (nextChar === '"') {
+          cell += '"';
+          i++; // Skip the next quote
+        } else {
+          inQuotes = false;
+        }
+      } else {
+        cell += char;
+      }
+    } else {
+      if (char === '"') {
+        inQuotes = true;
+      } else if (char === ',') {
+        row.push(cell);
+        cell = '';
+      } else if (char === '\r' || char === '\n') {
+        row.push(cell);
+        cell = '';
+        if (row.length > 0 && row.some(c => c.trim() !== '')) {
+          result.push(row);
+        }
+        row = [];
+        if (char === '\r' && nextChar === '\n') {
+          i++; // Skip \n if CRLF
+        }
+      } else {
+        cell += char;
+      }
+    }
+  }
+  if (cell || row.length > 0) {
+    row.push(cell);
+    if (row.some(c => c.trim() !== '')) {
+      result.push(row);
+    }
+  }
+  return result;
+}
+
 // ── Demo ambassadors ──
 const DEMO_AMBASSADORS: Record<string, AmbassadorData> = {
   POL: {
@@ -61,7 +113,18 @@ const DEMO_AMBASSADORS: Record<string, AmbassadorData> = {
     instagram: 'https://www.instagram.com/the.debonhair',
     website: 'https://duncankennethbailey.com',
     location: 'Utrecht, Netherlands',
-    bio: 'Owner of Duncan Kenneth Bailey',
+    bio: `Hello, let me introduce myself.
+My name is Duncan Bailey, the owner of Duncan Kenneth Bailey barbershop in Utrecht.
+After working at the Old School Barber Academy in Rotterdam for 8 years, the time had
+come to open my own doors.
+Through my large interest in art deco to mid century styles and clothing without the
+politics and I have come to embrace the quality and calm of timelessness.
+I love using this mentality as I’m cutting hair, beards or doing hot towel shaves.
+Quality over quantity means everything to me. On top of that I value experience of the
+client in the chair. That part of the service is equally important to me.
+From the interior of the shop, to the applied techniques and the slowing down to achieve
+the best possible quality for your clients. You’re taking a step back in time, where taking
+time was paramount.`,
   },
   PRT: {
     name: 'Joao R.',
@@ -202,18 +265,16 @@ export default function AmbassadorGlobe() {
     fetch('https://docs.google.com/spreadsheets/d/1zqybQqkll3624NKxaUIuc7dGk5nLzYUtzVhcftzoFFg/export?format=csv&gid=0')
       .then(res => res.text())
       .then(csv => {
-        const lines = csv.split('\n');
-        if (lines.length < 2) return;
+        const rows = parseCSV(csv);
+        if (rows.length < 2) return;
         
         const newAmbassadors: Record<string, AmbassadorData> = {};
         const newTaken = new Set<string>();
         
-        for (let i = 1; i < lines.length; i++) {
-          const line = lines[i];
-          if (!line.trim()) continue;
+        for (let i = 1; i < rows.length; i++) {
+          const values = rows[i];
+          if (values.length < 6) continue;
           
-          // Basic CSV parsing
-          const values = line.split(',');
           const country = values[0]?.trim();
           if (!country) continue;
           
@@ -225,15 +286,15 @@ export default function AmbassadorGlobe() {
           const yearsStr = values[3]?.trim();
           const experience = parseInt(yearsStr) || 0;
           const city = values[4]?.trim() || '';
-          const bio = values.slice(5).join(',')?.trim().replace(/^"|"$/g, '') || '';
+          const bio = values[5]?.trim() || '';
           
           // Map to ISO_A3
-          let isoCode = 'USA';
+          let isoCode = '';
           const cLow = country.toLowerCase();
           if (cLow.includes('poland')) isoCode = 'POL';
           else if (cLow.includes('mexico')) isoCode = 'MEX';
           else if (cLow.includes('portugal')) isoCode = 'PRT';
-          else if (cLow.includes('usa') || cLow.includes('states')) isoCode = 'USA';
+          else if (cLow.includes('usa') || cLow.includes('states') || cLow.includes('america')) isoCode = 'USA';
           else if (cLow.includes('korea')) isoCode = 'KOR';
           else if (cLow.includes('netherlands')) isoCode = 'NLD';
           else if (cLow.includes('indonesia')) isoCode = 'IDN';
@@ -243,6 +304,8 @@ export default function AmbassadorGlobe() {
           else if (cLow.includes('australia')) isoCode = 'AUS';
           else if (cLow.includes('greece')) isoCode = 'GRC';
           else if (cLow.includes('argentina')) isoCode = 'ARG';
+          
+          if (!isoCode) continue;
           
           let photoCountry = cLow.replace('brasil', 'brasil').replace('brazil', 'brasil');
           if (photoCountry === 'usa') photoCountry = 'usa';
