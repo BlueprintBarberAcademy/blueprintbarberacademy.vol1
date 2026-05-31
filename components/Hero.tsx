@@ -28,7 +28,6 @@ const ambassadors = [
   { image: '/ambassadors/australia.png', name: 'Vladyslav S.', country: 'Australia' },
   { image: '/ambassadors/south korea.png', name: 'Zay', country: 'South Korea' },
   { image: '/ambassadors/singapore.png', name: 'Dr.Faz', country: 'Singapore' },
-  { image: '/ambassadors/sweden.png', name: 'Helen', country: 'Sweden' },
   { image: '/ambassadors/argentina.png', name: 'Ivan-David G.', country: 'Argentina' },
   { image: '/ambassadors/brasil.png', name: 'Juliano N.', country: 'Brazil' },
   { image: '/ambassadors/greece.png', name: 'Outsiders Bbs.', country: 'Greece' },

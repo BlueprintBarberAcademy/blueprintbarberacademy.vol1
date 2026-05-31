@@ -185,17 +185,7 @@ Quality over quantity means everything to me.`,
     location: 'Singapore',
     bio: 'Owner of Deepcuts bbs.',
   },
-  SWE: {
-    name: 'Helen',
-    country: 'Sweden',
-    countryCode: 'SWE',
-    photo: '/ambassadors/sweden.png',
-    shopName: 'Stockholm',
-    experience: 4,
-    instagram: 'https://www.instagram.com/helenius.barb',
-    location: 'Stockholm, Sweden',
-    bio: 'Barber at The Chaps bbs.',
-  },
+
   ARG: {
     name: 'Ivan-David G.',
     country: 'Argentina',
@@ -293,7 +283,6 @@ export default function AmbassadorGlobe() {
           else if (cLow.includes('indonesia')) isoCode = 'IDN';
           else if (cLow.includes('singapore')) isoCode = 'SGP';
           else if (cLow.includes('brasil') || cLow.includes('brazil')) isoCode = 'BRA';
-          else if (cLow.includes('sweden')) isoCode = 'SWE';
           else if (cLow.includes('australia')) isoCode = 'AUS';
           else if (cLow.includes('greece')) isoCode = 'GRC';
           else if (cLow.includes('argentina')) isoCode = 'ARG';

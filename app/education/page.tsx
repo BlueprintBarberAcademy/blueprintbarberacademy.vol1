@@ -294,7 +294,6 @@ export default function Education() {
                     <option value="joao-portugal">Joao R. — Portugal</option>
                     <option value="drfaz-singapore">Dr.Faz — Singapore</option>
                     <option value="zay-southkorea">Zay — South Korea</option>
-                    <option value="helen-sweden">Helen — Sweden</option>
                     <option value="mauricio-usa">Mauricio M. — USA</option>
                   </optgroup>
                 </select>
