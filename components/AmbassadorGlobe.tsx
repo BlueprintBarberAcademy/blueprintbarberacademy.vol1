@@ -119,17 +119,7 @@ Through my large interest in art deco to mid century styles and clothing without
 I love using this mentality as I’m cutting hair, beards or doing hot towel shaves.
 Quality over quantity means everything to me.`,
   },
-  PRT: {
-    name: 'Joao R.',
-    country: 'Portugal',
-    countryCode: 'PRT',
-    photo: '/ambassadors/portugal.png',
-    shopName: 'Lisbon',
-    experience: 9,
-    instagram: 'https://www.instagram.com/r.u.f.i.n.o',
-    location: 'Lisbon, Portugal',
-    bio: 'Road barber with cabinet at city of Lisbon',
-  },
+
   IDN: {
     name: 'Andi F.',
     country: 'Indonesia',
@@ -276,7 +266,6 @@ export default function AmbassadorGlobe() {
           const cLow = country.toLowerCase();
           if (cLow.includes('poland')) isoCode = 'POL';
           else if (cLow.includes('mexico')) isoCode = 'MEX';
-          else if (cLow.includes('portugal')) isoCode = 'PRT';
           else if (cLow.includes('usa') || cLow.includes('states') || cLow.includes('america')) isoCode = 'USA';
           else if (cLow.includes('korea')) isoCode = 'KOR';
           else if (cLow.includes('netherlands')) isoCode = 'NLD';

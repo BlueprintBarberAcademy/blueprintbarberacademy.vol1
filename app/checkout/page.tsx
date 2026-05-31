@@ -343,7 +343,6 @@ function CheckoutContent() {
                     <option value="jordi-mexico">Jordi — Mexico</option>
                     <option value="duncan-netherlands">Duncan B. — Netherlands</option>
                     <option value="mikolaj-poland">Mikolaj M. — Poland</option>
-                    <option value="joao-portugal">Joao R. — Portugal</option>
                     <option value="drfaz-singapore">Dr.Faz — Singapore</option>
                     <option value="zay-southkorea">Zay — South Korea</option>
                     <option value="mauricio-usa">Mauricio M. — USA</option>

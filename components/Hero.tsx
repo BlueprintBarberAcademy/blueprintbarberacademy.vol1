@@ -21,7 +21,6 @@ const episodes = [
 const ambassadors = [
   { image: '/ambassadors/poland.png', name: 'Mikolaj M.', country: 'Poland' },
   { image: '/ambassadors/mexico.png', name: 'Jordi', country: 'Mexico' },
-  { image: '/ambassadors/portugal.png', name: 'Joao R.', country: 'Portugal' },
   { image: '/ambassadors/netherlands.png', name: 'Duncan B.', country: 'Netherlands' },
   { image: '/ambassadors/indonesia.png', name: 'Andi F.', country: 'Indonesia' },
   { image: '/ambassadors/usa.png', name: 'Mauricio M.', country: 'USA' },
