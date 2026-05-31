@@ -461,7 +461,56 @@ export default function AmbassadorGlobe() {
 
       {/* Top overlay content */}
       <div className="absolute top-0 left-0 right-0 z-20 pointer-events-none">
-        <div className="container mx-auto px-6 pt-24 md:pt-32 text-center">
+        <div className="container mx-auto px-6 pt-16 md:pt-20 text-center flex flex-col items-center">
+          {/* Search Bar */}
+          <div className="relative z-30 w-48 md:w-64 mb-4 pointer-events-auto">
+            {/* Dropdown goes below the input */}
+            {showDropdown && searchQuery && filteredCountries.length > 0 && (
+              <ul className="absolute top-full left-0 w-full mt-2 bg-[#17193b] border-2 border-white/20 max-h-64 overflow-y-auto shadow-[0_8px_20px_rgba(0,0,0,0.5)] z-50 text-left">
+                {filteredCountries.map((feat: any, idx: number) => {
+                  const name = feat.properties?.NAME || feat.properties?.ADMIN;
+                  const code = feat.properties?.ISO_A3;
+                  let status = 'OPEN';
+                  let statusColor = 'text-white/50';
+                  if (BLOCKED_COUNTRIES.has(code)) {
+                     status = 'BLOCKED';
+                     statusColor = 'text-accent';
+                  } else if (takenCountries.has(code)) {
+                     status = 'TAKEN';
+                     statusColor = 'text-white';
+                  }
+
+                  return (
+                    <li 
+                      key={idx}
+                      onClick={() => {
+                        handleCountryClick(feat);
+                        setSearchQuery('');
+                        setShowDropdown(false);
+                      }}
+                      className="px-3 py-2 border-b border-white/10 hover:bg-white/10 cursor-pointer flex justify-between items-center transition-colors"
+                    >
+                      <span className="text-white font-bold text-xs truncate mr-2">{name}</span>
+                      <span className={`text-[9px] font-black tracking-widest uppercase flex-shrink-0 ${statusColor}`}>{status}</span>
+                    </li>
+                  );
+                })}
+              </ul>
+            )}
+
+            <input
+              type="text"
+              placeholder="Search country..."
+              value={searchQuery}
+              onChange={(e) => {
+                setSearchQuery(e.target.value);
+                setShowDropdown(true);
+              }}
+              onFocus={() => setShowDropdown(true)}
+              className="w-full bg-background/10 backdrop-blur-md border-2 border-white/20 text-white px-3 py-2 text-xs focus:outline-none focus:border-accent transition-colors placeholder:text-white/40 uppercase tracking-widest font-bold shadow-lg"
+            />
+          </div>
+
           <div className="bg-accent text-background px-4 py-1 mb-6 border-2 border-background/30 font-bold tracking-widest uppercase text-xs inline-block transform -rotate-1 pointer-events-auto">
             Global Network • Personal Mentorship
           </div>
@@ -500,56 +549,7 @@ export default function AmbassadorGlobe() {
         ← Back
       </a>
 
-      {/* Search Bar */}
-      <div className="absolute bottom-6 right-6 md:left-1/2 md:-translate-x-1/2 md:bottom-10 z-30 w-64 md:w-80 pointer-events-auto">
-        <div className="relative">
-          {/* Dropdown goes above the input so it doesn't get cut off at bottom */}
-          {showDropdown && searchQuery && filteredCountries.length > 0 && (
-            <ul className="absolute bottom-full left-0 w-full mb-2 bg-[#17193b] border-2 border-white/20 max-h-64 overflow-y-auto shadow-[0_-8px_20px_rgba(0,0,0,0.5)]">
-              {filteredCountries.map((feat: any, idx: number) => {
-                const name = feat.properties?.NAME || feat.properties?.ADMIN;
-                const code = feat.properties?.ISO_A3;
-                let status = 'OPEN';
-                let statusColor = 'text-white/50';
-                if (BLOCKED_COUNTRIES.has(code)) {
-                   status = 'BLOCKED';
-                   statusColor = 'text-accent';
-                } else if (takenCountries.has(code)) {
-                   status = 'TAKEN';
-                   statusColor = 'text-white';
-                }
 
-                return (
-                  <li 
-                    key={idx}
-                    onClick={() => {
-                      handleCountryClick(feat);
-                      setSearchQuery('');
-                      setShowDropdown(false);
-                    }}
-                    className="px-4 py-3 border-b border-white/10 hover:bg-white/10 cursor-pointer flex justify-between items-center transition-colors"
-                  >
-                    <span className="text-white font-bold text-sm truncate mr-2">{name}</span>
-                    <span className={`text-[9px] font-black tracking-widest uppercase flex-shrink-0 ${statusColor}`}>{status}</span>
-                  </li>
-                );
-              })}
-            </ul>
-          )}
-
-          <input
-            type="text"
-            placeholder="Search country..."
-            value={searchQuery}
-            onChange={(e) => {
-              setSearchQuery(e.target.value);
-              setShowDropdown(true);
-            }}
-            onFocus={() => setShowDropdown(true)}
-            className="w-full bg-background/10 backdrop-blur-md border-2 border-white/20 text-white px-4 py-3 text-sm focus:outline-none focus:border-accent transition-colors placeholder:text-white/40 uppercase tracking-widest font-bold shadow-lg"
-          />
-        </div>
-      </div>
 
       {/* Modals */}
       {modal.type === 'blocked' && (
