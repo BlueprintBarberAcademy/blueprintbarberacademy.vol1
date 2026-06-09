@@ -149,7 +149,7 @@ export default function FinalCTA() {
           <div className="relative z-10 flex flex-col items-center">
 
             {/* Reviews Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 w-full mb-8 text-left">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 w-full text-left">
 
               {/* Left: Reviews Feed */}
               <div className="flex flex-col bg-background/50 border-2 border-foreground/10 p-4">
@@ -284,11 +284,11 @@ export default function FinalCTA() {
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center mt-12 z-30">
-          <a href="/plans" className="bg-foreground text-background border-2 border-foreground px-8 py-3.5 text-sm font-black uppercase tracking-widest hover:bg-accent hover:border-accent hover:text-background transition-colors shadow-[4px_4px_0_0_#d92b3a] text-center">
+        <div className="flex flex-col sm:flex-row gap-6 w-full sm:w-auto justify-center mt-12">
+          <a href="/plans" className="bg-foreground text-background border-2 border-foreground px-12 py-5 text-lg font-black uppercase tracking-widest hover:bg-accent hover:border-accent hover:text-background transition-colors shadow-[8px_8px_0_0_#d92b3a] text-center">
             Start Learning
           </a>
-          <a href="/text-manual" className="bg-background text-foreground border-2 border-foreground px-8 py-3.5 text-sm font-black uppercase tracking-widest hover:bg-foreground hover:text-background transition-all shadow-[4px_4px_0_0_#17193b] text-center">
+          <a href="/text-manual" className="bg-background text-foreground border-2 border-foreground px-12 py-5 text-lg font-black uppercase tracking-widest hover:bg-foreground hover:text-background transition-all shadow-[8px_8px_0_0_#17193b] text-center">
             Browse Courses
           </a>
         </div>
