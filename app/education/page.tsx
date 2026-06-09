@@ -177,9 +177,9 @@ export default function Education() {
       {/* Certification Section */}
       <section className="py-16 md:py-24 bg-background border-t-2 border-foreground relative overflow-hidden">
         <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: 'repeating-linear-gradient(-45deg, var(--foreground) 0, var(--foreground) 2px, transparent 0, transparent 40px)', backgroundSize: '60px 60px' }}></div>
-        <div className="container mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center gap-12 relative z-10">
+        <div className="max-w-4xl mx-auto px-6 flex flex-col md:flex-row items-center gap-8 md:gap-12 relative z-10">
           {/* Image */}
-          <div className="w-full md:w-1/2 relative aspect-[4/3] border-4 border-foreground shadow-[8px_8px_0_0_#17193b] overflow-hidden bg-secondary">
+          <div className="w-full md:w-5/12 relative aspect-[4/3] border-4 border-foreground shadow-[8px_8px_0_0_#17193b] overflow-hidden bg-secondary shrink-0">
             <Image
               src="/education/certificate.png"
               alt="Blueprint Official Certificate"
@@ -188,14 +188,13 @@ export default function Education() {
             />
           </div>
           {/* Text */}
-          <div className="w-full md:w-1/2 flex flex-col items-start text-left">
+          <div className="w-full md:w-7/12 flex flex-col items-start text-left">
             <div className="inline-block bg-accent text-background px-4 py-1 mb-6 border-2 border-foreground shadow-[4px_4px_0_0_#17193b]">
               <p className="text-xs font-bold tracking-widest uppercase">Official Certification</p>
             </div>
-            <p className="text-lg text-foreground/80 font-medium leading-relaxed mb-6">
+            <p className="text-lg text-foreground/85 font-semibold leading-relaxed">
               All participants who successfully complete any of our physical live coaching classes will receive an official <strong className="text-foreground">Blueprint Academy Certificate</strong>.
             </p>
-
           </div>
         </div>
       </section>
