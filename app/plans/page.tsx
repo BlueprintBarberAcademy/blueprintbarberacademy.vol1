@@ -198,33 +198,30 @@ export default function Plans() {
           </div>
 
           {/* Barbershop & Franchise Licenses info block */}
-          <div className="max-w-2xl mx-auto mt-16 bg-[#17193b] text-white border-4 border-foreground p-6 md:p-8 shadow-[8px_8px_0_0_#d92b3a]">
-            <h4 className="text-xl font-serif font-black uppercase tracking-wider mb-3 text-accent text-center md:text-left">
-              Barbershop & Franchise Licenses
-            </h4>
-            <p className="text-sm font-medium leading-relaxed mb-6 text-white/80 text-center md:text-left">
-              The prices listed above reflect individual, single-user access. We offer discounted group rates if you are purchasing access for your entire barbershop staff or franchise network:
+          <div className="max-w-2xl mx-auto mt-12 text-foreground p-4 text-center">
+            <p className="text-sm font-medium leading-relaxed mb-4 text-foreground/75">
+              The prices listed above reflect individual, single-user access. We offer discounted group rates for teams:
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 border-2 border-white/10 p-4 bg-background/5 text-center">
-              <div className="flex flex-col items-center justify-center p-3 border-b sm:border-b-0 sm:border-r border-white/10">
-                <span className="text-xs font-black uppercase tracking-widest text-white/50 mb-1">Personal Access</span>
-                <span className="text-2xl font-serif font-black text-white">$250</span>
-                <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest mt-1">Single User</span>
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-12 py-3 border-y border-foreground/10">
+              <div className="flex flex-col items-center">
+                <span className="text-xs font-black uppercase tracking-widest text-foreground/50 mb-0.5">Personal Access</span>
+                <span className="text-xl font-serif font-black text-foreground">$250</span>
+                <span className="text-[10px] font-bold text-foreground/40 uppercase tracking-widest mt-0.5">Single User</span>
               </div>
-              <div className="flex flex-col items-center justify-center p-3 border-b sm:border-b-0 sm:border-r border-white/10">
-                <span className="text-xs font-black uppercase tracking-widest text-accent mb-1">Shop Staff</span>
-                <span className="text-2xl font-serif font-black text-accent">$200</span>
-                <span className="text-[10px] font-bold text-accent/60 uppercase tracking-widest mt-1">2–9 Seats / Per User</span>
+              <div className="flex flex-col items-center">
+                <span className="text-xs font-black uppercase tracking-widest text-accent mb-0.5">Shop Staff</span>
+                <span className="text-xl font-serif font-black text-accent">$200</span>
+                <span className="text-[10px] font-bold text-accent/60 uppercase tracking-widest mt-0.5">2-9 members</span>
               </div>
-              <div className="flex flex-col items-center justify-center p-3">
-                <span className="text-xs font-black uppercase tracking-widest text-accent mb-1">Franchise</span>
-                <span className="text-2xl font-serif font-black text-accent">$175</span>
-                <span className="text-[10px] font-bold text-accent/60 uppercase tracking-widest mt-1">10+ Seats / Per User</span>
+              <div className="flex flex-col items-center">
+                <span className="text-xs font-black uppercase tracking-widest text-accent mb-0.5">Franchise</span>
+                <span className="text-xl font-serif font-black text-accent">$175</span>
+                <span className="text-[10px] font-bold text-accent/60 uppercase tracking-widest mt-0.5">10+ member</span>
               </div>
             </div>
-            <p className="text-center text-xs font-bold uppercase tracking-widest text-white/50 mt-6">
+            <p className="text-xs font-bold uppercase tracking-widest text-foreground/50 mt-4">
               Need multi-user access?{' '}
-              <a href="/join" className="text-accent underline hover:text-white transition-colors">
+              <a href="/join" className="text-accent underline hover:text-foreground transition-colors">
                 Contact our support team
               </a>{' '}
               to set up your team account.
