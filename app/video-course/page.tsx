@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Image from 'next/image';
-import { Play } from 'lucide-react';
+import { Play, Award } from 'lucide-react';
 import EpisodeModal, { episodeContents } from '@/components/EpisodeModal';
 
 const courses = [
@@ -104,6 +104,39 @@ export default function VideoCourse() {
                 </div>
               </button>
             ))}
+          </div>
+
+          {/* Certification and testing banner */}
+          <div className="mt-20 max-w-4xl mx-auto">
+            <div className="relative border-4 border-background bg-foreground p-8 md:p-10 shadow-[8px_8px_0_0_#d92b3a] hover:shadow-[12px_12px_0_0_rgba(255,255,255,0.2)] hover:-translate-y-1 transition-all duration-300 group">
+              
+              <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 mt-4">
+                {/* Certificate Image Side */}
+                <div className="w-full md:w-5/12 relative aspect-[4/3] border-2 border-background shadow-[4px_4px_0_0_rgba(255,255,255,0.2)] overflow-hidden bg-secondary shrink-0">
+                  <Image
+                    src="/education/certificate.png"
+                    alt="Blueprint Official Certificate"
+                    fill
+                    className="object-contain p-1"
+                  />
+                </div>
+                
+                {/* Text Side */}
+                <div className="w-full md:w-7/12 flex flex-col items-center md:items-start text-center md:text-left gap-3">
+                  <div className="w-12 h-12 rounded-full border-2 border-background bg-foreground flex justify-center items-center shadow-[2px_2px_0_0_rgba(255,255,255,0.2)] group-hover:bg-accent transition-all duration-300">
+                    <Award className="w-6 h-6 text-background transition-colors duration-300" strokeWidth={2} />
+                  </div>
+                  
+                  <h3 className="text-2xl md:text-3xl font-serif font-black text-background uppercase tracking-tight mt-1">
+                    Online Testing + Certification
+                  </h3>
+                  
+                  <p className="text-sm md:text-base text-background/75 font-semibold leading-relaxed">
+                    This video course features online testing of your knowledge and awards an official <strong className="text-background">Blueprint Academy Certificate</strong>.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
 
         </div>

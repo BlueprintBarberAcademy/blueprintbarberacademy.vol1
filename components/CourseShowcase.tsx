@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { Play } from 'lucide-react';
+import { Play, Award } from 'lucide-react';
 import EpisodeModal, { episodeContents } from './EpisodeModal';
 
 const courses = [
@@ -24,7 +24,7 @@ export default function CourseShowcase() {
   const [selectedEpisode, setSelectedEpisode] = useState<number | null>(null);
 
   return (
-    <section id="courses" className="py-24 md:py-32 bg-background border-b-2 border-foreground relative overflow-hidden">
+    <section id="courses" className="pt-24 pb-16 md:pt-32 md:pb-20 bg-background border-b-2 border-foreground relative overflow-hidden">
       <div className="container mx-auto px-6 md:px-12 relative z-10">
 
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 border-b-4 border-foreground pb-6">
@@ -70,6 +70,17 @@ export default function CourseShowcase() {
               <div className="w-8 h-1 bg-foreground mx-auto mt-3 group-hover:bg-accent transition-colors"></div>
             </button>
           ))}
+        </div>
+
+        {/* Certification and testing label */}
+        <div className="mt-12 flex flex-col items-center text-center">
+          <div className="w-16 h-16 rounded-full border-2 border-foreground bg-background flex justify-center items-center shadow-[3px_3px_0_0_#17193b]">
+            <Award className="w-8 h-8 text-foreground" strokeWidth={2} />
+          </div>
+          
+          <h3 className="text-2xl md:text-3xl font-serif font-black text-foreground uppercase tracking-tight mt-4">
+            Online Testing + Certification
+          </h3>
         </div>
 
       </div>

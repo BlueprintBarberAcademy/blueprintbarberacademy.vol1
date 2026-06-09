@@ -179,12 +179,12 @@ export default function Education() {
         <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: 'repeating-linear-gradient(-45deg, var(--foreground) 0, var(--foreground) 2px, transparent 0, transparent 40px)', backgroundSize: '60px 60px' }}></div>
         <div className="container mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center gap-12 relative z-10">
           {/* Image */}
-          <div className="w-full md:w-1/2 relative h-[300px] md:h-[450px] border-4 border-foreground shadow-[8px_8px_0_0_#17193b] overflow-hidden bg-secondary">
+          <div className="w-full md:w-1/2 relative aspect-[4/3] border-4 border-foreground shadow-[8px_8px_0_0_#17193b] overflow-hidden bg-secondary">
             <Image
               src="/education/certificate.png"
               alt="Blueprint Official Certificate"
               fill
-              className="object-contain p-4 md:p-8"
+              className="object-contain p-2"
             />
           </div>
           {/* Text */}
@@ -192,9 +192,6 @@ export default function Education() {
             <div className="inline-block bg-accent text-background px-4 py-1 mb-6 border-2 border-foreground shadow-[4px_4px_0_0_#17193b]">
               <p className="text-xs font-bold tracking-widest uppercase">Official Certification</p>
             </div>
-            <h2 className="text-4xl md:text-5xl font-serif font-black text-foreground mb-6 uppercase tracking-tighter leading-none">
-              Get Certified
-            </h2>
             <p className="text-lg text-foreground/80 font-medium leading-relaxed mb-6">
               All participants who successfully complete any of our physical live coaching classes will receive an official <strong className="text-foreground">Blueprint Academy Certificate</strong>.
             </p>

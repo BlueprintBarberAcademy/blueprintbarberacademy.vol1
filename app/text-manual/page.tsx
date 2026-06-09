@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Image from 'next/image';
-import { BookOpen } from 'lucide-react';
+import { BookOpen, Award } from 'lucide-react';
 import EpisodeModal, { episodeContents } from '@/components/EpisodeModal';
 
 const courses = [
@@ -91,6 +91,39 @@ export default function TextManual() {
                 <div className="w-12 h-1 bg-foreground mt-auto group-hover:bg-accent transition-colors"></div>
               </button>
             ))}
+          </div>
+
+          {/* Certification and testing banner */}
+          <div className="mt-20 max-w-4xl mx-auto">
+            <div className="relative border-4 border-foreground bg-secondary p-8 md:p-10 shadow-[8px_8px_0_0_#d92b3a] hover:shadow-[12px_12px_0_0_#17193b] hover:-translate-y-1 transition-all duration-300 group">
+              
+              <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 mt-4">
+                {/* Certificate Image Side */}
+                <div className="w-full md:w-5/12 relative aspect-[4/3] border-2 border-foreground shadow-[4px_4px_0_0_#17193b] overflow-hidden bg-background shrink-0">
+                  <Image
+                    src="/education/certificate.png"
+                    alt="Blueprint Official Certificate"
+                    fill
+                    className="object-contain p-1"
+                  />
+                </div>
+                
+                {/* Text Side */}
+                <div className="w-full md:w-7/12 flex flex-col items-center md:items-start text-center md:text-left gap-3">
+                  <div className="w-12 h-12 rounded-full border-2 border-foreground bg-background flex justify-center items-center shadow-[2px_2px_0_0_#17193b] group-hover:bg-accent group-hover:text-background transition-all duration-300">
+                    <Award className="w-6 h-6 text-foreground group-hover:text-background transition-colors duration-300" strokeWidth={2} />
+                  </div>
+                  
+                  <h3 className="text-2xl md:text-3xl font-serif font-black text-foreground uppercase tracking-tight mt-1">
+                    Online Testing + Certification
+                  </h3>
+                  
+                  <p className="text-sm md:text-base text-foreground/75 font-semibold leading-relaxed">
+                    This textbook manual features online testing of your knowledge and awards an official <strong className="text-foreground">Blueprint Academy Certificate</strong>.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
 
         </div>
