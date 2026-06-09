@@ -198,9 +198,7 @@ export default function Education() {
             <p className="text-lg text-foreground/80 font-medium leading-relaxed mb-6">
               All participants who successfully complete any of our physical live coaching classes will receive an official <strong className="text-foreground">Blueprint Academy Certificate</strong>.
             </p>
-            <p className="text-base text-foreground/60 font-bold">
-              Demonstrate your commitment to the craft and elevate your professional portfolio with our globally recognized credential.
-            </p>
+
           </div>
         </div>
       </section>
