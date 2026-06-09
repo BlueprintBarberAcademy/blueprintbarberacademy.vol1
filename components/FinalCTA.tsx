@@ -280,17 +280,19 @@ export default function FinalCTA() {
 
             </div>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-6 w-full sm:w-auto justify-center border-t-2 border-foreground/20 pt-6">
-              <a href="/plans" className="bg-foreground text-background border-2 border-foreground px-12 py-5 text-lg font-black uppercase tracking-widest hover:bg-accent hover:border-accent hover:text-background transition-colors shadow-[8px_8px_0_0_#d92b3a] text-center">
-                Start Learning
-              </a>
-              <a href="/text-manual" className="bg-background text-foreground border-2 border-foreground px-12 py-5 text-lg font-black uppercase tracking-widest hover:bg-foreground hover:text-background transition-all shadow-[8px_8px_0_0_#17193b] text-center">
-                Browse Courses
-              </a>
-            </div>
           </div>
         </div>
+
+        {/* CTA Buttons */}
+        <div className="flex flex-row justify-center gap-8 mt-10 text-sm font-black uppercase tracking-widest">
+          <a href="/plans" className="text-foreground hover:text-accent transition-colors">
+            Start Learning →
+          </a>
+          <a href="/text-manual" className="text-foreground hover:text-accent transition-colors">
+            Browse Courses →
+          </a>
+        </div>
+
       </div>
 
     </section>
