@@ -101,8 +101,8 @@ export default function FinalCTA() {
       {/* Scrollbar Styling */}
       <style>{`
         .reviews-scroll::-webkit-scrollbar { width: 6px; }
-        .reviews-scroll::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); }
-        .reviews-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); }
+        .reviews-scroll::-webkit-scrollbar-track { background: rgba(23, 25, 59, 0.05); }
+        .reviews-scroll::-webkit-scrollbar-thumb { background: rgba(23, 25, 59, 0.15); }
         .reviews-scroll::-webkit-scrollbar-thumb:hover { background: #d92b3a; }
       `}</style>
 
@@ -119,11 +119,11 @@ export default function FinalCTA() {
       </div>
 
       {/* Row 1: Masterclasses */}
-      <div className="w-full bg-foreground border-y-4 border-foreground py-4 flex items-center shadow-[0_8px_30px_rgba(0,0,0,0.12)] z-20 transform -rotate-1 scale-105 mb-4 overflow-x-auto snap-x [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-        <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: 'repeating-linear-gradient(45deg, var(--background) 0, var(--background) 2px, transparent 0, transparent 40px)', backgroundSize: '60px 60px' }}></div>
+      <div className="w-full bg-secondary border-y-4 border-foreground py-4 flex items-center shadow-[0_8px_30px_rgba(0,0,0,0.12)] z-20 transform -rotate-1 scale-105 mb-4 overflow-x-auto snap-x [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+        <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'repeating-linear-gradient(45deg, var(--foreground) 0, var(--foreground) 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }}></div>
         <div className="flex items-center min-w-max px-8">
           {masterclasses.map((src, index) => (
-            <div key={`mc-${index}`} className="relative h-56 mx-3 border-2 border-background shadow-[4px_4px_0_0_rgba(255,255,255,0.2)] bg-secondary snap-center shrink-0 group">
+            <div key={`mc-${index}`} className="relative h-56 mx-3 border-2 border-foreground shadow-[4px_4px_0_0_#17193b] bg-secondary snap-center shrink-0 group">
               <img src={src} alt="Masterclass" loading="lazy" className="h-full w-auto object-cover grayscale group-hover:grayscale-0 transition-all duration-500 block" />
             </div>
           ))}
@@ -143,8 +143,8 @@ export default function FinalCTA() {
 
       {/* Final CTA Box */}
       <div className="container mx-auto px-6 relative z-30 flex flex-col items-center pb-24">
-        <div className="bg-foreground p-8 md:p-10 border-4 border-foreground shadow-[16px_16px_0_0_#d92b3a] w-full max-w-4xl relative overflow-hidden">
-          <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: 'repeating-linear-gradient(45deg, var(--background) 0, var(--background) 2px, transparent 0, transparent 40px)', backgroundSize: '60px 60px' }}></div>
+        <div className="bg-secondary p-8 md:p-10 border-4 border-foreground shadow-[16px_16px_0_0_#d92b3a] w-full max-w-4xl relative overflow-hidden">
+          <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'repeating-linear-gradient(45deg, var(--foreground) 0, var(--foreground) 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }}></div>
 
           <div className="relative z-10 flex flex-col items-center">
 
@@ -152,40 +152,40 @@ export default function FinalCTA() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 w-full mb-8 text-left">
 
               {/* Left: Reviews Feed */}
-              <div className="flex flex-col bg-background/5 border-2 border-background/20 p-4">
-                <h4 className="text-sm font-serif font-black text-background uppercase tracking-wider mb-3 flex items-center gap-2 border-b-2 border-background/10 pb-2">
+              <div className="flex flex-col bg-background/50 border-2 border-foreground/10 p-4">
+                <h4 className="text-sm font-serif font-black text-foreground uppercase tracking-wider mb-3 flex items-center gap-2 border-b-2 border-foreground/10 pb-2">
                   <MessageSquare className="w-5 h-5 text-accent" />
                   Student Reviews
                 </h4>
 
                 <div className="reviews-scroll overflow-y-auto max-h-[180px] pr-2 space-y-3">
                   {loadingReviews ? (
-                    <div className="text-background/60 text-sm font-medium py-8 text-center flex items-center justify-center gap-2">
+                    <div className="text-foreground/60 text-sm font-medium py-8 text-center flex items-center justify-center gap-2">
                       <Loader2 className="w-4 h-4 animate-spin text-accent" />
                       Loading...
                     </div>
                   ) : reviews.length === 0 ? (
-                    <div className="text-background/60 text-sm font-medium py-8 text-center">
+                    <div className="text-foreground/60 text-sm font-medium py-8 text-center">
                       Be the first to leave a review!
                     </div>
                   ) : (
                     reviews.map((r, index) => (
-                      <div key={r.id || index} className="bg-background/10 border border-background/10 p-4 hover:border-background/30 transition-all duration-300">
+                      <div key={r.id || index} className="bg-background border border-foreground/10 p-4 hover:border-foreground/30 transition-all duration-300">
                         <div className="flex items-center justify-between gap-3 mb-2">
                           <div className="flex items-center gap-2">
                             <div className="w-7 h-7 bg-accent text-background font-serif font-black flex items-center justify-center text-xs">
                               {r.name ? r.name.charAt(0).toUpperCase() : 'U'}
                             </div>
-                            <span className="font-serif font-black text-background text-sm tracking-wide">
+                            <span className="font-serif font-black text-foreground text-sm tracking-wide">
                               {r.name}
                             </span>
                           </div>
-                          <div className="flex items-center gap-1 text-[9px] uppercase font-black tracking-wider text-[#34d399] bg-[#34d399]/10 px-2 py-0.5 border border-[#34d399]/20 shrink-0">
-                            <ShieldCheck className="w-3 h-3 text-[#34d399]" />
+                          <div className="flex items-center gap-1 text-[9px] uppercase font-black tracking-wider text-[#059669] bg-[#059669]/10 px-2 py-0.5 border border-[#059669]/20 shrink-0">
+                            <ShieldCheck className="w-3 h-3 text-[#059669]" />
                             Verified Student
                           </div>
                         </div>
-                        <p className="text-sm text-background/80 font-medium leading-relaxed italic">
+                        <p className="text-sm text-foreground/80 font-medium leading-relaxed italic">
                           "{r.review}"
                         </p>
                       </div>
@@ -195,15 +195,15 @@ export default function FinalCTA() {
               </div>
 
               {/* Right: Leave a Review Form */}
-              <div className="flex flex-col bg-background/5 border-2 border-background/20 p-4">
-                <h4 className="text-sm font-serif font-black text-background uppercase tracking-wider mb-3 border-b-2 border-background/10 pb-2">
+              <div className="flex flex-col bg-background/50 border-2 border-foreground/10 p-4">
+                <h4 className="text-sm font-serif font-black text-foreground uppercase tracking-wider mb-3 border-b-2 border-foreground/10 pb-2">
                   Leave a Review
                 </h4>
 
                 <form onSubmit={handleSubmit} className="space-y-3 flex flex-col justify-between flex-grow">
                   <div className="space-y-2">
                     <div>
-                      <label className="block text-[9px] uppercase font-black text-background/50 tracking-widest mb-1">
+                      <label className="block text-[9px] uppercase font-black text-foreground/50 tracking-widest mb-1">
                         Your Name
                       </label>
                       <input
@@ -212,12 +212,12 @@ export default function FinalCTA() {
                         placeholder="John D."
                         value={formData.name}
                         onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
-                        className="w-full bg-background/10 border border-background/20 text-background px-2 py-1.5 text-xs font-medium focus:outline-none focus:border-accent transition-colors duration-200 placeholder-background/30 rounded-none"
+                        className="w-full bg-background border border-foreground/20 text-foreground px-2 py-1.5 text-xs font-medium focus:outline-none focus:border-accent transition-colors duration-200 placeholder-foreground/30 rounded-none"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-[9px] uppercase font-black text-background/50 tracking-widest mb-1">
+                      <label className="block text-[9px] uppercase font-black text-foreground/50 tracking-widest mb-1">
                         Your Email
                       </label>
                       <input
@@ -226,15 +226,15 @@ export default function FinalCTA() {
                         placeholder="your@email.com"
                         value={formData.email}
                         onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
-                        className="w-full bg-background/10 border border-background/20 text-background px-2 py-1.5 text-xs font-medium focus:outline-none focus:border-accent transition-colors duration-200 placeholder-background/30 rounded-none"
+                        className="w-full bg-background border border-foreground/20 text-foreground px-2 py-1.5 text-xs font-medium focus:outline-none focus:border-accent transition-colors duration-200 placeholder-foreground/30 rounded-none"
                       />
-                      <span className="text-[9px] text-background/40 font-semibold block mt-1">
+                      <span className="text-[9px] text-foreground/45 font-semibold block mt-1">
                         *Use the email you paid with — we verify every review.
                       </span>
                     </div>
 
                     <div>
-                      <label className="block text-[9px] uppercase font-black text-background/50 tracking-widest mb-1">
+                      <label className="block text-[9px] uppercase font-black text-foreground/50 tracking-widest mb-1">
                         Review
                       </label>
                       <textarea
@@ -243,7 +243,7 @@ export default function FinalCTA() {
                         placeholder="Share your experience with the course..."
                         value={formData.review}
                         onChange={(e) => setFormData(prev => ({ ...prev, review: e.target.value }))}
-                        className="w-full bg-background/10 border border-background/20 text-background px-3 py-1.5 text-xs font-medium focus:outline-none focus:border-accent transition-colors duration-200 placeholder-background/30 resize-none rounded-none"
+                        className="w-full bg-background border border-foreground/20 text-foreground px-3 py-1.5 text-xs font-medium focus:outline-none focus:border-accent transition-colors duration-200 placeholder-foreground/30 resize-none rounded-none"
                       />
                     </div>
                   </div>
@@ -263,7 +263,7 @@ export default function FinalCTA() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full bg-background text-foreground border-2 border-background py-2.5 text-xs font-black uppercase tracking-widest hover:bg-accent hover:border-accent hover:text-background transition-colors shadow-[4px_4px_0_0_rgba(255,255,255,0.1)] hover:shadow-[4px_4px_0_0_#17193b] flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-full bg-foreground text-background border-2 border-foreground py-2.5 text-xs font-black uppercase tracking-widest hover:bg-accent hover:border-accent hover:text-background transition-colors shadow-[4px_4px_0_0_rgba(0,0,0,0.15)] hover:shadow-[4px_4px_0_0_#17193b] flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {isSubmitting ? (
                         <>
@@ -281,11 +281,11 @@ export default function FinalCTA() {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-6 w-full sm:w-auto justify-center border-t-2 border-background/20 pt-6">
-              <a href="/plans" className="bg-background text-foreground border-2 border-background px-12 py-5 text-lg font-black uppercase tracking-widest hover:bg-accent hover:border-accent hover:text-background transition-colors shadow-[8px_8px_0_0_rgba(255,255,255,0.2)] text-center">
+            <div className="flex flex-col sm:flex-row gap-6 w-full sm:w-auto justify-center border-t-2 border-foreground/20 pt-6">
+              <a href="/plans" className="bg-foreground text-background border-2 border-foreground px-12 py-5 text-lg font-black uppercase tracking-widest hover:bg-accent hover:border-accent hover:text-background transition-colors shadow-[8px_8px_0_0_#d92b3a] text-center">
                 Start Learning
               </a>
-              <a href="/text-manual" className="bg-transparent text-background border-2 border-background px-12 py-5 text-lg font-black uppercase tracking-widest hover:bg-background hover:text-foreground transition-all shadow-[8px_8px_0_0_rgba(255,255,255,0.2)] text-center">
+              <a href="/text-manual" className="bg-background text-foreground border-2 border-foreground px-12 py-5 text-lg font-black uppercase tracking-widest hover:bg-foreground hover:text-background transition-all shadow-[8px_8px_0_0_#17193b] text-center">
                 Browse Courses
               </a>
             </div>
