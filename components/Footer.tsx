@@ -1,7 +1,7 @@
 'use client';
 
 import { Instagram, Facebook, Youtube, X, Mail, MapPin, Phone, Send } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Footer() {
   const [showContactModal, setShowContactModal] = useState(false);
@@ -10,6 +10,28 @@ export default function Footer() {
   const [subject, setSubject] = useState('General Inquiry');
   const [message, setMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    const handleOpenModal = () => setShowContactModal(true);
+    window.addEventListener('open-contact-modal', handleOpenModal);
+
+    const handleHashChange = () => {
+      if (window.location.hash === '#contact') {
+        setShowContactModal(true);
+      }
+    };
+
+    if (window.location.hash === '#contact') {
+      setShowContactModal(true);
+    }
+
+    window.addEventListener('hashchange', handleHashChange);
+
+    return () => {
+      window.removeEventListener('open-contact-modal', handleOpenModal);
+      window.removeEventListener('hashchange', handleHashChange);
+    };
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -97,29 +119,7 @@ export default function Footer() {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 border-2 border-foreground flex-shrink-0 flex justify-center items-center text-accent shadow-[2px_2px_0_0_#17193b]">
-                    <Phone size={16} />
-                  </div>
-                  <div>
-                    <p className="text-xs font-black uppercase tracking-widest text-foreground mb-1">Phone</p>
-                    <a href="tel:+48123456789" className="text-sm text-foreground/70 font-bold hover:text-accent transition-colors">
-                      +48 123 456 789
-                    </a>
-                  </div>
-                </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 border-2 border-foreground flex-shrink-0 flex justify-center items-center text-accent shadow-[2px_2px_0_0_#17193b]">
-                    <MapPin size={16} />
-                  </div>
-                  <div>
-                    <p className="text-xs font-black uppercase tracking-widest text-foreground mb-1">Location</p>
-                    <p className="text-sm text-foreground/70 font-bold">
-                      The Hermit Barber Shop<br />Warsaw, Poland
-                    </p>
-                  </div>
-                </div>
 
                 <div className="flex gap-3 mt-2">
                   <a href="https://www.instagram.com/2tall_ridah/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 border-2 border-foreground flex justify-center items-center text-foreground hover:bg-accent hover:text-background hover:border-accent transition-colors shadow-[2px_2px_0_0_#17193b]">

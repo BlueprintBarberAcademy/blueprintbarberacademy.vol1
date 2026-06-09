@@ -221,7 +221,7 @@ export default function Plans() {
             </div>
             <p className="text-xs font-bold uppercase tracking-widest text-foreground/50 mt-4">
               Need multi-user access?{' '}
-              <a href="/join" className="text-accent underline hover:text-foreground transition-colors">
+              <a href="#contact" className="text-accent underline hover:text-foreground transition-colors">
                 Contact our support team
               </a>{' '}
               to set up your team account.
