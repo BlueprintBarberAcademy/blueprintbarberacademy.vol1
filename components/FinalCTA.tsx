@@ -142,7 +142,7 @@ export default function FinalCTA() {
       </div>
 
       {/* Final CTA Box */}
-      <div className="container mx-auto px-6 relative z-30 flex flex-col items-center pb-24">
+      <div className="container mx-auto px-6 relative z-30 flex flex-col items-center pb-6">
         <div className="bg-secondary p-8 md:p-10 border-4 border-foreground shadow-[16px_16px_0_0_#d92b3a] w-full max-w-4xl relative overflow-hidden">
           <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'repeating-linear-gradient(45deg, var(--foreground) 0, var(--foreground) 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }}></div>
 
@@ -284,7 +284,7 @@ export default function FinalCTA() {
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-6 w-full sm:w-auto justify-center mt-12">
+        <div className="flex flex-col sm:flex-row gap-6 w-full sm:w-auto justify-center mt-8">
           <a href="/plans" className="bg-foreground text-background border-2 border-foreground px-12 py-5 text-lg font-black uppercase tracking-widest hover:bg-accent hover:border-accent hover:text-background transition-colors shadow-[8px_8px_0_0_#d92b3a] text-center">
             Start Learning
           </a>
